@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafoli de Cafè — Els Cafès del Manel</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --carn: #f0e3d2;
+  --marro-fluix: #8a6a50;
+  --marro-fosc: #68452d;
+  --gris: #e4e4e4;
+  --blanc: #ffffff;
+  --negre: #000000;
+  --cream: #faf6f0;
+  --off-white: #fdfbf8;
+  --warm-overlay: rgba(104,69,45,.06);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; color:var(--marro-fosc); background:var(--off-white); line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(104,69,45,.96); backdrop-filter:blur(12px); padding:12px 40px; display:flex; align-items:center; justify-content:space-between; }
+nav .brand { font-family:'Merriweather',serif; font-weight:700; font-size:12px; letter-spacing:3px; color:var(--carn); text-transform:uppercase; }
+nav .links { display:flex; gap:24px; list-style:none; }
+nav .links a { color:var(--carn); text-decoration:none; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-weight:400; transition:color .3s; }
+nav .links a:hover { color:var(--blanc); }
+
+/* COVER */
+.cover { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:var(--marro-fosc); color:var(--carn); position:relative; overflow:hidden; padding:80px 40px; }
+.cover::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:radial-gradient(ellipse at 40% 50%,rgba(240,227,210,.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(138,106,80,.08) 0%,transparent 50%); }
+.cover-inner { position:relative; z-index:1; }
+.cover .doc-type { font-size:13px; font-weight:700; letter-spacing:6px; text-transform:uppercase; color:var(--marro-fluix); opacity:.7; margin-bottom:24px; }
+.cover h1 { font-family:'Merriweather',serif; font-size:64px; font-weight:900; letter-spacing:-1px; line-height:1.1; margin-bottom:16px; }
+.cover h1 span { color:var(--marro-fluix); }
+.cover .tagline { font-family:'Merriweather',serif; font-style:italic; font-size:20px; color:var(--marro-fluix); margin:24px 0 40px; font-weight:300; }
+.cover .year-badge { font-size:48px; font-weight:700; color:var(--marro-fluix); margin:16px 0; display:inline-block; border:2px solid rgba(138,106,80,.3); padding:8px 40px; }
+.cover .contact { margin-top:60px; font-size:12px; color:rgba(240,227,210,.4); line-height:2; }
+.cover .contact a { color:var(--marro-fluix); text-decoration:none; }
+
+/* LOGO SVG INLINE */
+.logo-inline { display:inline-block; }
+.logo-inline svg { width:120px; height:120px; }
+
+/* TOC */
+.toc { display:grid; grid-template-columns:1fr 1fr; min-height:70vh; }
+.toc-visual { background:var(--marro-fosc); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; flex-direction:column; gap:24px; }
+.toc-visual .panot { position:absolute; inset:0; opacity:.04; background-image:repeating-conic-gradient(var(--carn) 0% 25%, transparent 0% 50%); background-size:60px 60px; }
+.toc-content { padding:100px 80px; display:flex; flex-direction:column; justify-content:center; background:var(--cream); }
+.toc-content h2 { font-family:'Merriweather',serif; font-size:42px; font-weight:700; line-height:1.1; margin-bottom:48px; }
+.toc-content h2 .script { font-style:italic; font-weight:300; display:block; font-size:18px; color:var(--marro-fluix); margin-bottom:4px; }
+.toc-item { display:flex; align-items:center; padding:18px 0; border-bottom:1px solid rgba(104,69,45,.08); }
+.toc-item:first-child { border-top:1px solid rgba(104,69,45,.08); }
+.toc-num { font-weight:700; font-size:11px; color:var(--marro-fluix); letter-spacing:2px; min-width:36px; }
+.toc-label { flex:1; font-weight:500; font-size:15px; }
+.toc-pages { font-size:11px; color:var(--marro-fluix); }
+
+/* SECTIONS */
+section { padding:120px 80px; max-width:1400px; margin:0 auto; }
+.full-bleed { max-width:100%; padding:0; }
+.sec-num { font-weight:700; font-size:11px; color:var(--marro-fluix); letter-spacing:4px; text-transform:uppercase; margin-bottom:12px; }
+.sec-script { font-family:'Merriweather',serif; font-style:italic; font-weight:300; font-size:18px; color:var(--marro-fluix); margin-bottom:4px; }
+h2.sec-title { font-family:'Merriweather',serif; font-size:44px; font-weight:700; line-height:1.15; margin-bottom:8px; }
+h2.sec-title .accent { color:var(--marro-fluix); font-style:italic; font-weight:300; }
+.sec-subtitle { font-size:14px; font-style:italic; color:var(--marro-fluix); margin-bottom:24px; }
+.divider { width:60px; height:2px; background:var(--marro-fluix); margin:20px 0 32px; }
+.intro-text { font-size:15px; line-height:1.85; color:var(--marro-fluix); max-width:780px; margin-bottom:48px; }
+.intro-text strong { color:var(--marro-fosc); }
+
+/* ACCENT BAR */
+.section-accent-bar { width:100%; height:4px; margin:0; background:linear-gradient(90deg,var(--marro-fosc),var(--marro-fluix),var(--carn)); }
+
+/* BRAND STORY - FULL WIDTH BLOCKS */
+.brand-block { padding:100px 80px; max-width:1400px; margin:0 auto; }
+.brand-block-dark { background:var(--marro-fosc); color:var(--carn); padding:100px 80px; position:relative; overflow:hidden; }
+.brand-block-dark::before { content:''; position:absolute; inset:0; opacity:.03; background-image:repeating-conic-gradient(var(--carn) 0% 25%, transparent 0% 50%); background-size:80px 80px; }
+.brand-block-dark .inner { position:relative; z-index:1; max-width:1400px; margin:0 auto; }
+.brand-block-dark .sec-num { color:var(--carn); opacity:.5; }
+.brand-block-dark h2.sec-title { color:var(--carn); }
+.brand-block-dark h2.sec-title .accent { color:var(--marro-fluix); }
+.brand-block-dark .divider { background:var(--marro-fluix); }
+.brand-block-dark .intro-text { color:rgba(240,227,210,.7); }
+.brand-block-dark .intro-text strong { color:var(--carn); }
+
+/* VALUES GRID */
+.values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:48px 0; }
+.value-card { padding:40px 36px; border:1px solid rgba(104,69,45,.08); position:relative; overflow:hidden; background:white; }
+.value-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--marro-fluix); }
+.value-card h3 { font-family:'Merriweather',serif; font-size:18px; font-weight:700; margin-bottom:12px; color:var(--marro-fosc); }
+.value-card p { font-size:13px; line-height:1.8; color:var(--marro-fluix); }
+
+/* DARK VALUE CARDS */
+.values-grid-dark { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin:48px 0; }
+.value-card-dark { padding:40px 36px; background:rgba(240,227,210,.06); border:1px solid rgba(240,227,210,.08); }
+.value-card-dark h3 { font-family:'Merriweather',serif; font-size:16px; font-weight:700; margin-bottom:12px; color:var(--carn); }
+.value-card-dark p { font-size:13px; line-height:1.8; color:rgba(240,227,210,.6); }
+
+/* STREET CONCEPT */
+.street-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:48px 0; }
+.street-card { padding:48px 36px; border:1px solid rgba(104,69,45,.06); text-align:center; position:relative; }
+.street-card::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:40px; height:3px; }
+.street-card:nth-child(1)::before { background:var(--marro-fluix); }
+.street-card:nth-child(2)::before { background:var(--marro-fosc); }
+.street-card:nth-child(3)::before { background:var(--carn); border:1px solid var(--gris); }
+.street-name { font-family:'Merriweather',serif; font-size:22px; font-weight:700; margin-bottom:4px; color:var(--marro-fosc); }
+.street-origin { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:16px; }
+.street-desc { font-family:'Merriweather',serif; font-style:italic; font-size:14px; line-height:1.7; color:var(--marro-fluix); margin-bottom:16px; }
+.street-coffee { font-size:13px; line-height:1.7; color:var(--marro-fluix); }
+
+/* QUOTE */
+.quote-block { text-align:center; padding:80px 40px; background:var(--cream); margin:48px 0; }
+.quote-block blockquote { font-family:'Merriweather',serif; font-size:28px; font-weight:700; line-height:1.4; color:var(--marro-fosc); max-width:800px; margin:0 auto; }
+.quote-block .attribution { font-size:12px; color:var(--marro-fluix); margin-top:16px; letter-spacing:2px; text-transform:uppercase; font-weight:700; }
+
+/* VARIETY OVERVIEW CARDS */
+.overview-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.overview-card { padding:40px 36px; border:1px solid rgba(104,69,45,.08); position:relative; overflow:hidden; background:white; transition:box-shadow .3s; }
+.overview-card:hover { box-shadow:0 8px 32px rgba(104,69,45,.08); }
+.overview-card::before { content:attr(data-score); position:absolute; top:16px; right:20px; font-size:56px; font-weight:700; color:rgba(104,69,45,.04); line-height:1; }
+.overview-card::after { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+.overview-card:nth-child(1)::after { background:var(--marro-fluix); }
+.overview-card:nth-child(2)::after { background:var(--marro-fosc); }
+.overview-card:nth-child(3)::after { background:linear-gradient(90deg,var(--marro-fluix),var(--carn)); }
+.overview-card .card-street { font-family:'Merriweather',serif; font-size:22px; font-weight:700; margin-bottom:2px; }
+.overview-card .card-origin { font-size:11px; color:var(--marro-fluix); font-weight:700; letter-spacing:1px; margin-bottom:20px; text-transform:uppercase; }
+.spec-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(104,69,45,.04); font-size:12px; }
+.spec-row:last-child { border-bottom:none; }
+.spec-row .label { color:var(--marro-fluix); font-weight:600; }
+.spec-row .value { color:var(--marro-fosc); font-weight:400; text-align:right; max-width:60%; }
+.intensity-dots { display:flex; gap:3px; justify-content:flex-end; }
+.dot { width:10px; height:10px; border-radius:50%; border:1.5px solid var(--marro-fosc); }
+.dot.filled { background:var(--marro-fosc); }
+
+/* RADAR CHART (SVG) */
+.radar-container { display:flex; justify-content:center; margin:32px 0; }
+
+/* VARIETY DETAIL */
+.variety-detail { padding:100px 80px; max-width:1400px; margin:0 auto; border-top:1px solid rgba(104,69,45,.06); }
+.variety-header { display:flex; align-items:baseline; gap:16px; margin-bottom:8px; flex-wrap:wrap; }
+.variety-name { font-family:'Merriweather',serif; font-size:40px; font-weight:700; }
+.variety-type { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); }
+.variety-subtitle { font-family:'Merriweather',serif; font-style:italic; font-size:16px; color:var(--marro-fluix); margin-bottom:32px; font-weight:300; }
+.variety-grid { display:grid; grid-template-columns:340px 1fr; gap:60px; }
+.variety-specs { padding:32px; background:var(--cream); height:fit-content; position:relative; overflow:hidden; }
+.variety-specs::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--marro-fluix); }
+.variety-specs .vs-row { display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid rgba(104,69,45,.06); font-size:13px; gap:12px; }
+.variety-specs .vs-row:last-child { border-bottom:none; }
+.variety-specs .vs-label { font-weight:700; color:var(--marro-fosc); text-transform:uppercase; letter-spacing:1px; font-size:10px; min-width:90px; flex-shrink:0; }
+.variety-specs .vs-value { color:var(--marro-fluix); text-align:right; }
+.variety-body p { font-size:14px; line-height:1.85; color:var(--marro-fluix); margin-bottom:16px; }
+.variety-body strong { color:var(--marro-fosc); }
+
+/* CUP OUTCOME */
+.cup-outcome { padding:24px; background:var(--marro-fosc); color:var(--carn); margin-top:24px; }
+.cup-outcome h4 { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:8px; }
+.cup-outcome p { font-size:14px; line-height:1.7; color:rgba(240,227,210,.8); margin:0; }
+
+/* CALLOUT BOX */
+.callout { padding:24px; background:rgba(138,106,80,.06); border-left:3px solid var(--marro-fluix); margin:24px 0; }
+.callout .callout-title { font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:8px; }
+.callout p { font-size:14px; line-height:1.7; color:var(--marro-fluix); margin:0; }
+.callout p + p { margin-top:8px; }
+
+/* SCORING TABLE */
+.scoring-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(104,69,45,.06); margin:24px 0; }
+.scoring-cell { background:white; padding:12px 8px; text-align:center; }
+.scoring-cell .sc-label { font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:4px; }
+.scoring-cell .sc-value { font-size:18px; font-weight:700; color:var(--marro-fosc); }
+
+/* BAR INDICATORS */
+.bar-row { display:flex; align-items:center; gap:12px; margin:8px 0; }
+.bar-label { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--marro-fluix); min-width:80px; }
+.bar-track { flex:1; height:8px; background:var(--gris); border-radius:4px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:4px; background:var(--marro-fluix); transition:width .6s ease; }
+.bar-value { font-size:11px; font-weight:600; color:var(--marro-fosc); min-width:30px; text-align:right; }
+
+/* ORIGIN BANNER */
+.origin-banner { background:var(--marro-fosc); padding:80px; position:relative; overflow:hidden; }
+.origin-banner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%,rgba(240,227,210,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(138,106,80,.04) 0%,transparent 40%); }
+.origin-banner-inner { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; max-width:1400px; margin:0 auto; }
+.origin-banner-text { color:var(--carn); }
+.origin-banner-text h3 { font-family:'Merriweather',serif; font-size:28px; font-weight:700; margin-bottom:12px; }
+.origin-banner-text h3 .accent { color:var(--marro-fluix); font-style:italic; font-weight:300; }
+.origin-banner-text p { font-size:14px; line-height:1.8; color:rgba(240,227,210,.7); margin-bottom:12px; }
+.origin-stat { display:inline-flex; flex-direction:column; align-items:center; padding:24px 32px; }
+.origin-stat-value { font-family:'Merriweather',serif; font-size:48px; font-weight:700; color:var(--carn); line-height:1; }
+.origin-stat-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-top:8px; }
+.origin-tags { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; justify-content:center; }
+.origin-tag { padding:8px 18px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px; }
+.origin-tag.brown { background:rgba(138,106,80,.15); color:var(--marro-fluix); border:1px solid rgba(138,106,80,.2); }
+.origin-tag.light { background:rgba(240,227,210,.1); color:var(--carn); border:1px solid rgba(240,227,210,.15); }
+
+/* PREPARATION METHODS */
+.prep-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:24px 0; }
+.prep-card { text-align:center; padding:20px 12px; border:1px solid rgba(104,69,45,.06); background:white; }
+.prep-card .prep-icon { font-size:24px; margin-bottom:8px; }
+.prep-card .prep-name { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--marro-fosc); }
+
+/* FOOTER */
+.footer { background:var(--marro-fosc); color:var(--carn); padding:60px 80px; text-align:center; position:relative; overflow:hidden; }
+.footer::before { content:''; position:absolute; inset:0; opacity:.03; background-image:repeating-conic-gradient(var(--carn) 0% 25%, transparent 0% 50%); background-size:60px 60px; }
+.footer .inner { position:relative; z-index:1; }
+.footer .brand { font-family:'Merriweather',serif; font-weight:700; font-size:13px; letter-spacing:4px; text-transform:uppercase; margin-bottom:16px; }
+.footer .copy { font-size:11px; color:rgba(240,227,210,.3); margin-top:24px; }
+
+/* RESPONSIVE */
+@media(max-width:1024px) {
+  section,.variety-detail,.brand-block { padding:80px 40px; }
+  .brand-block-dark { padding:80px 40px; }
+  .cover h1 { font-size:42px; }
+  h2.sec-title,.variety-name { font-size:32px; }
+  .toc,.variety-grid,.overview-grid,.values-grid,.street-grid,.values-grid-dark,.origin-banner-inner { grid-template-columns:1fr; }
+  .origin-banner { padding:60px 40px; }
+  .scoring-grid { grid-template-columns:repeat(5,1fr); }
+  nav .links { display:none; }
+}
+@media(max-width:640px) {
+  section,.variety-detail,.brand-block { padding:60px 24px; }
+  .brand-block-dark { padding:60px 24px; }
+  .cover h1 { font-size:32px; }
+  .overview-grid,.values-grid,.street-grid,.values-grid-dark { grid-template-columns:1fr; }
+  .origin-banner { padding:40px 24px; }
+  .scoring-grid { grid-template-columns:repeat(3,1fr); }
+  .prep-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Els Cafès del Manel</div>
+  <ul class="links">
+    <li><a href="#marca">La Marca</a></li>
+    <li><a href="#filosofia">Filosofia</a></li>
+    <li><a href="#coleccio">Col·lecció</a></li>
+    <li><a href="#verdi">Verdi</a></li>
+    <li><a href="#gracia">Gran de Gràcia</a></li>
+    <li><a href="#torrent">Torrent de l'Olla</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover full-bleed">
+  <div class="cover-inner">
+    <div class="logo-inline">
+      <svg viewBox="0 0 500 500" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0,500) scale(0.1,-0.1)" fill="#f0e3d2" stroke="none">
+          <path d="M1355 3670 c-126 -27 -145 -32 -151 -41 -3 -5 -12 -9 -21 -9 -42 0 -224 -111 -293 -179 -202 -200 -257 -518 -135 -779 77 -163 201 -270 386 -333 86 -29 105 -32 224 -33 73 0 143 4 160 11 17 6 50 17 75 24 60 17 70 26 70 61 l0 29 -47 -8 c-198 -33 -373 45 -504 227 -98 135 -122 404 -52 585 67 176 192 293 381 355 98 31 241 45 249 23 3 -7 -11 -14 -34 -18 -213 -34 -335 -107 -418 -250 -25 -41 -30 -62 -33 -137 l-4 -88 603 2 604 3 3 35 c4 55 21 87 60 113 55 38 104 47 243 47 113 0 129 -2 153 -21 l26 -21 -2 -946 c-3 -908 -4 -948 -22 -978 -37 -61 -124 -93 -259 -94 l-78 0 3 -28 3 -27 480 -5 c537 -6 551 -5 557 18 9 35 -2 42 -70 42 -78 0 -176 18 -216 40 -16 9 -39 34 -50 55 -21 40 -21 48 -24 1193 -3 1285 5 1175 -74 1126 -52 -33 -170 -88 -223 -104 -22 -6 -53 -16 -70 -21 -49 -16 -273 -22 -355 -10 -173 25 -209 33 -305 62 -55 17 -122 37 -150 46 -175 52 -524 69 -690 33z"/>
+          <path d="M3795 3672 c-27 -10 -68 -27 -90 -39 -52 -27 -127 -108 -149 -159 -10 -21 -22 -47 -27 -56 -5 -10 -9 -58 -9 -108 0 -99 22 -166 77 -235 40 -50 129 -110 192 -129 158 -47 356 7 448 122 127 158 117 358 -25 504 -100 104 -277 146 -417 100z m248 -100 c73 -32 130 -98 155 -179 26 -82 26 -90 7 -158 -78 -266 -437 -292 -556 -40 -54 113 -30 232 64 321 89 83 218 105 330 56z"/>
+          <path d="M2030 3037 c-17 -8 -103 -11 -282 -11 -203 1 -258 -1 -258 -11 0 -15 23 -18 278 -42 164 -15 198 -15 315 -3 73 8 153 13 180 12 l47 -2 0 35 0 35 -127 -1 c-76 0 -138 -5 -153 -12z"/>
+          <path d="M1250 2985 c0 -23 31 -107 44 -121 75 -74 385 -119 666 -95 171 14 223 25 261 51 38 28 131 28 159 0 17 -17 20 -33 20 -109 0 -85 1 -91 26 -110 32 -25 76 -27 109 -5 25 16 25 18 25 166 0 144 -1 150 -24 173 -31 31 -89 42 -141 25 -37 -11 -61 -13 -132 -8 -16 1 -88 -6 -161 -15 -284 -36 -637 -15 -780 45 -53 22 -72 23 -72 3z"/>
+          <path d="M1622 2683 c25 -28 41 -63 52 -115 4 -15 19 -43 36 -61 28 -33 29 -35 20 -98 -5 -35 -10 -90 -10 -121 0 -56 1 -58 26 -58 24 0 26 3 20 28 -24 110 -24 113 44 188 55 60 110 153 110 185 0 6 9 23 20 39 11 15 17 30 13 34 -3 3 -85 6 -182 6 l-175 0 26 -27z"/>
+          <path d="M1740 2152 c0 -9 -16 -53 -35 -97 -39 -89 -42 -113 -20 -155 30 -58 90 -67 136 -21 39 39 38 83 -2 163 -18 35 -39 78 -47 96 -18 35 -32 42 -32 14z"/>
+          <path d="M1578 1762 c-461 -2 -538 -4 -538 -17 0 -13 7 -33 31 -90 5 -11 20 -58 35 -105 55 -175 127 -284 216 -327 94 -46 108 -48 278 -47 157 1 168 2 225 28 33 15 74 40 90 55 23 21 47 30 105 40 139 22 211 59 290 148 59 68 72 98 73 169 1 70 -7 84 -59 109 -44 20 -91 14 -151 -21 -57 -33 -63 -31 -51 12 5 20 6 39 1 43 -4 3 -250 5 -545 3z m714 -99 c41 -37 8 -157 -61 -214 -44 -37 -150 -88 -196 -96 -39 -6 -41 -3 -21 35 16 31 48 114 72 189 14 45 22 55 62 77 55 29 117 33 144 9z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="doc-type">Portafoli de Cafè</div>
+    <h1>ELS CAFÈS<br><span>DEL MANEL</span></h1>
+    <div class="tagline">Un cafè com cal.</div>
+    <div class="year-badge">2026</div>
+    <div class="contact">
+      Barcelona · Gràcia<br>
+      @elscafesdelmanel
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOC ═══ -->
+<div class="toc full-bleed">
+  <div class="toc-visual">
+    <div class="panot"></div>
+    <div class="logo-inline" style="position:relative;z-index:1;opacity:.2;">
+      <svg viewBox="0 0 500 500" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0,500) scale(0.1,-0.1)" fill="#f0e3d2" stroke="none">
+          <path d="M1355 3670 c-126 -27 -145 -32 -151 -41 -3 -5 -12 -9 -21 -9 -42 0 -224 -111 -293 -179 -202 -200 -257 -518 -135 -779 77 -163 201 -270 386 -333 86 -29 105 -32 224 -33 73 0 143 4 160 11 17 6 50 17 75 24 60 17 70 26 70 61 l0 29 -47 -8 c-198 -33 -373 45 -504 227 -98 135 -122 404 -52 585 67 176 192 293 381 355 98 31 241 45 249 23 3 -7 -11 -14 -34 -18 -213 -34 -335 -107 -418 -250 -25 -41 -30 -62 -33 -137 l-4 -88 603 2 604 3 3 35 c4 55 21 87 60 113 55 38 104 47 243 47 113 0 129 -2 153 -21 l26 -21 -2 -946 c-3 -908 -4 -948 -22 -978 -37 -61 -124 -93 -259 -94 l-78 0 3 -28 3 -27 480 -5 c537 -6 551 -5 557 18 9 35 -2 42 -70 42 -78 0 -176 18 -216 40 -16 9 -39 34 -50 55 -21 40 -21 48 -24 1193 -3 1285 5 1175 -74 1126 -52 -33 -170 -88 -223 -104 -22 -6 -53 -16 -70 -21 -49 -16 -273 -22 -355 -10 -173 25 -209 33 -305 62 -55 17 -122 37 -150 46 -175 52 -524 69 -690 33z"/>
+          <path d="M3795 3672 c-27 -10 -68 -27 -90 -39 -52 -27 -127 -108 -149 -159 -10 -21 -22 -47 -27 -56 -5 -10 -9 -58 -9 -108 0 -99 22 -166 77 -235 40 -50 129 -110 192 -129 158 -47 356 7 448 122 127 158 117 358 -25 504 -100 104 -277 146 -417 100z m248 -100 c73 -32 130 -98 155 -179 26 -82 26 -90 7 -158 -78 -266 -437 -292 -556 -40 -54 113 -30 232 64 321 89 83 218 105 330 56z"/>
+          <path d="M2030 3037 c-17 -8 -103 -11 -282 -11 -203 1 -258 -1 -258 -11 0 -15 23 -18 278 -42 164 -15 198 -15 315 -3 73 8 153 13 180 12 l47 -2 0 35 0 35 -127 -1 c-76 0 -138 -5 -153 -12z"/>
+          <path d="M1250 2985 c0 -23 31 -107 44 -121 75 -74 385 -119 666 -95 171 14 223 25 261 51 38 28 131 28 159 0 17 -17 20 -33 20 -109 0 -85 1 -91 26 -110 32 -25 76 -27 109 -5 25 16 25 18 25 166 0 144 -1 150 -24 173 -31 31 -89 42 -141 25 -37 -11 -61 -13 -132 -8 -16 1 -88 -6 -161 -15 -284 -36 -637 -15 -780 45 -53 22 -72 23 -72 3z"/>
+          <path d="M1622 2683 c25 -28 41 -63 52 -115 4 -15 19 -43 36 -61 28 -33 29 -35 20 -98 -5 -35 -10 -90 -10 -121 0 -56 1 -58 26 -58 24 0 26 3 20 28 -24 110 -24 113 44 188 55 60 110 153 110 185 0 6 9 23 20 39 11 15 17 30 13 34 -3 3 -85 6 -182 6 l-175 0 26 -27z"/>
+          <path d="M1740 2152 c0 -9 -16 -53 -35 -97 -39 -89 -42 -113 -20 -155 30 -58 90 -67 136 -21 39 39 38 83 -2 163 -18 35 -39 78 -47 96 -18 35 -32 42 -32 14z"/>
+          <path d="M1578 1762 c-461 -2 -538 -4 -538 -17 0 -13 7 -33 31 -90 5 -11 20 -58 35 -105 55 -175 127 -284 216 -327 94 -46 108 -48 278 -47 157 1 168 2 225 28 33 15 74 40 90 55 23 21 47 30 105 40 139 22 211 59 290 148 59 68 72 98 73 169 1 70 -7 84 -59 109 -44 20 -91 14 -151 -21 -57 -33 -63 -31 -51 12 5 20 6 39 1 43 -4 3 -250 5 -545 3z m714 -99 c41 -37 8 -157 -61 -214 -44 -37 -150 -88 -196 -96 -39 -6 -41 -3 -21 35 16 31 48 114 72 189 14 45 22 55 62 77 55 29 117 33 144 9z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="toc-content">
+    <h2><span class="script">Portafoli de Cafè</span>Índex</h2>
+    <div class="toc-item"><span class="toc-num">01</span><span class="toc-label">La Marca</span><span class="toc-pages">Identitat i valors</span></div>
+    <div class="toc-item"><span class="toc-num">02</span><span class="toc-label">Filosofia</span><span class="toc-pages">Cafè, cultura i comunitat</span></div>
+    <div class="toc-item"><span class="toc-num">03</span><span class="toc-label">La Col·lecció</span><span class="toc-pages">Tres orígens, tres carrers</span></div>
+    <div class="toc-item"><span class="toc-num">04</span><span class="toc-label">Verdi — Brasil</span><span class="toc-pages">Bourbon Amarelo, Natural, 83 pts</span></div>
+    <div class="toc-item"><span class="toc-num">05</span><span class="toc-label">Gran de Gràcia — Colòmbia</span><span class="toc-pages">Castillo/Caturra, Lavat, 84 pts</span></div>
+    <div class="toc-item"><span class="toc-num">06</span><span class="toc-label">Torrent de l'Olla — Etiòpia</span><span class="toc-pages">Heirloom, Lavat, 83,5 pts</span></div>
+  </div>
+</div>
+
+<!-- ═══ 01 LA MARCA ═══ -->
+<section id="marca">
+  <div class="sec-num">01</div>
+  <div class="sec-script">Qui som</div>
+  <h2 class="sec-title">ELS CAFÈS DEL MANEL<br><span class="accent">Una manera d'estar</span></h2>
+  <div class="divider"></div>
+
+  <div class="intro-text">
+    <p>Els Cafès del Manel és una marca de <strong>cafè d'especialitat arrelada a Catalunya</strong> que entén el cafè com una experiència cultural i comunitària. No és només una marca de cafè. És una manera d'estar.</p>
+    <p style="margin-top:16px;">Neix en un context on el cafè s'ha convertit en moda, i proposa una <strong>alternativa amb criteri, identitat i relat</strong>. Sense postureig. Sense artifici. Sense elitisme.</p>
+    <p style="margin-top:16px;">Es construeix sobre tres eixos fonamentals: <strong>Cafè</strong> — selecció d'orígens amb criteri i coherència. <strong>Cultura</strong> — art, música, pensament, creació contemporània. <strong>Comunitat</strong> — conversa real, trobada, proximitat.</p>
+  </div>
+
+  <div class="quote-block" style="margin:48px 0;">
+    <blockquote>«El cafè no és per fer fotos.<br>És per quedar-s'hi.»</blockquote>
+    <div class="attribution">Els Cafès del Manel</div>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <h3>Mirada i criteri</h3>
+      <p>Seleccionem cafès amb rigor i coherència. No treballem amb volum, sinó amb identitat. Cada cafè té una història.</p>
+    </div>
+    <div class="value-card">
+      <h3>Comunitat abans que consum</h3>
+      <p>El cafè és punt de trobada. La conversa és tan important com la tassa. Creem espais on la connexió humana és protagonista.</p>
+    </div>
+    <div class="value-card">
+      <h3>Honestedat i transparència</h3>
+      <p>Sense postureig. Sense artifici. Sense elitisme. El bon cafè no ha de ser excloent. Ha de ser coneixement, tradició i plaer compartit.</p>
+    </div>
+    <div class="value-card">
+      <h3>Identitat catalana, mirada oberta</h3>
+      <p>Neixem en català. Pensem des del territori. Dialoguem amb el món. No som una marca global amb nom anglès. Som d'aquí. I això és posicionament.</p>
+    </div>
+    <div class="value-card">
+      <h3>Cultura viva</h3>
+      <p>El cafè connecta amb l'art, la música i la creació contemporània. No és un producte decoratiu. És una experiència cultural.</p>
+    </div>
+    <div class="value-card">
+      <h3>Qualitat amb relat</h3>
+      <p>Cada producte respon a una història, a uns valors i a una manera d'entendre el cafè que va més enllà del gust. Si ho fem, ho fem com cal.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-accent-bar"></div>
+
+<!-- ═══ 02 FILOSOFIA ═══ -->
+<div class="brand-block-dark full-bleed" id="filosofia">
+  <div class="inner">
+    <div class="sec-num">02</div>
+    <div class="sec-script" style="color:var(--marro-fluix);">La nostra filosofia</div>
+    <h2 class="sec-title">CAFÈ, CULTURA<br><span class="accent">I Comunitat</span></h2>
+    <div class="divider"></div>
+
+    <div class="intro-text">
+      <p>Entendre el cafè com a cultura. I la cultura com un espai compartit. <strong>Els Cafès del Manel</strong> no neix per vendre cafè. Neix per construir un moviment cultural al voltant del cafè, on la identitat, la qualitat i la comunitat vagin sempre de la mà.</p>
+      <p style="margin-top:16px;">Volem que, quan algú pensi en cafè amb identitat catalana, en esdeveniments de cafè vinculats a l'art i la cultura, en cafè d'especialitat amb ànima, relat i comunitat... <strong>pensi directament en Els Cafès del Manel.</strong></p>
+    </div>
+
+    <div style="text-align:center;padding:48px 0;margin:32px 0;border-top:1px solid rgba(240,227,210,.08);border-bottom:1px solid rgba(240,227,210,.08);">
+      <div style="font-family:'Merriweather',serif;font-size:28px;font-weight:700;color:var(--carn);line-height:1.4;">«Un cafè com cal no és pressa.<br>És moment.»</div>
+    </div>
+
+    <div class="values-grid-dark">
+      <div class="value-card-dark">
+        <h3>Missió</h3>
+        <p>Desenvolupar una marca de cafè d'especialitat amb caràcter, relat i coherència. Democratitzar el cafè d'especialitat, fent-lo accessible, proper i culturalment rellevant. Construir una comunitat que entengui el cafè com una experiència compartida.</p>
+      </div>
+      <div class="value-card-dark">
+        <h3>Visió</h3>
+        <p>Esdevenir una marca de referència en el sector del cafè d'especialitat que redefineixi la manera com es viu i es comparteix el cafè a Barcelona i a Catalunya. La nostra visió no és només vendre cafè. És construir un moviment cultural.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:64px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:24px;">Una col·lecció amb nom de carrer i caràcter de cafè</div>
+      <div class="intro-text">
+        <p>Gràcia no és només un barri. És una manera de viure. I els nostres cafès tampoc són només orígens. Són personalitats.</p>
+        <p style="margin-top:16px;">Cada carrer que dona nom a un cafè representa el <strong>caràcter que trobaràs dins la tassa</strong>. No és una coincidència. És una declaració.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:32px 0;">
+      <div style="padding:40px 28px;background:rgba(240,227,210,.04);border:1px solid rgba(240,227,210,.06);text-align:center;">
+        <div style="font-family:'Merriweather',serif;font-size:20px;font-weight:700;color:var(--carn);margin-bottom:4px;">Carrer Verdi</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Brasil</div>
+        <div style="font-family:'Merriweather',serif;font-style:italic;font-size:14px;color:rgba(240,227,210,.5);">L'equilibri quotidià</div>
+      </div>
+      <div style="padding:40px 28px;background:rgba(240,227,210,.04);border:1px solid rgba(240,227,210,.06);text-align:center;">
+        <div style="font-family:'Merriweather',serif;font-size:20px;font-weight:700;color:var(--carn);margin-bottom:4px;">Gran de Gràcia</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Colòmbia</div>
+        <div style="font-family:'Merriweather',serif;font-style:italic;font-size:14px;color:rgba(240,227,210,.5);">L'elegància que estructura</div>
+      </div>
+      <div style="padding:40px 28px;background:rgba(240,227,210,.04);border:1px solid rgba(240,227,210,.06);text-align:center;">
+        <div style="font-family:'Merriweather',serif;font-size:20px;font-weight:700;color:var(--carn);margin-bottom:4px;">Torrent de l'Olla</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Etiòpia</div>
+        <div style="font-family:'Merriweather',serif;font-style:italic;font-size:14px;color:rgba(240,227,210,.5);">La creativitat vibrant</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-accent-bar"></div>
+
+<!-- ═══ 03 LA COL·LECCIÓ — COMPARATIVA ═══ -->
+<section id="coleccio">
+  <div class="sec-num">03</div>
+  <div class="sec-script">Tres orígens, tres carrers</div>
+  <h2 class="sec-title">LA COL·LECCIÓ<br><span class="accent">Comparativa de Varietats</span></h2>
+  <div class="divider"></div>
+
+  <div class="intro-text">
+    <p>Cada cafè de la col·lecció porta el nom d'un carrer de Gràcia que reflecteix el seu caràcter. <strong>Tres orígens, tres personalitats, tres experiències en tassa</strong> — units per la mateixa exigència i el mateix criteri.</p>
+  </div>
+
+  <div class="overview-grid">
+    <!-- VERDI — BRASIL -->
+    <div class="overview-card" data-score="83">
+      <div class="card-street">Verdi</div>
+      <div class="card-origin">Brasil · Fazenda São Pedro</div>
+      <div class="spec-row"><span class="label">Regió</span><span class="value">Alta Mogiana, Santo Antonio do Jardim</span></div>
+      <div class="spec-row"><span class="label">Varietal</span><span class="value">Bourbon Amarelo</span></div>
+      <div class="spec-row"><span class="label">Procés</span><span class="value">Natural</span></div>
+      <div class="spec-row"><span class="label">Altitud</span><span class="value">980 m</span></div>
+      <div class="spec-row"><span class="label">Puntuació</span><span class="value">83 pts</span></div>
+      <div class="spec-row"><span class="label">Intensitat</span><span class="value"><span class="intensity-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></span></span></div>
+      <div class="spec-row"><span class="label">Perfil</span><span class="value">Dolç i axocolatat</span></div>
+      <div class="spec-row"><span class="label">Notes</span><span class="value">Maduixa, fruits del bosc, caramel, nous, cacau</span></div>
+      <div class="spec-row"><span class="label">Cos</span><span class="value">Mitjà</span></div>
+      <div class="spec-row"><span class="label">Acidesa</span><span class="value">Baixa-Mitjana</span></div>
+    </div>
+
+    <!-- GRAN DE GRÀCIA — COLÒMBIA -->
+    <div class="overview-card" data-score="84">
+      <div class="card-street">Gran de Gràcia</div>
+      <div class="card-origin">Colòmbia · Golden Huila</div>
+      <div class="spec-row"><span class="label">Regió</span><span class="value">Huila</span></div>
+      <div class="spec-row"><span class="label">Varietal</span><span class="value">Castillo, Caturra, Colombia</span></div>
+      <div class="spec-row"><span class="label">Procés</span><span class="value">Lavat tradicional</span></div>
+      <div class="spec-row"><span class="label">Altitud</span><span class="value">1.200 – 1.800 m</span></div>
+      <div class="spec-row"><span class="label">Puntuació</span><span class="value">84 pts</span></div>
+      <div class="spec-row"><span class="label">Intensitat</span><span class="value"><span class="intensity-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></span></span></div>
+      <div class="spec-row"><span class="label">Perfil</span><span class="value">Axocolatat i cítric</span></div>
+      <div class="spec-row"><span class="label">Notes</span><span class="value">Sucre de canya, xocolata amb llet, préssec, llimona</span></div>
+      <div class="spec-row"><span class="label">Cos</span><span class="value">Mitjà, cremós</span></div>
+      <div class="spec-row"><span class="label">Acidesa</span><span class="value">Mitjana, cítrica</span></div>
+    </div>
+
+    <!-- TORRENT DE L'OLLA — ETIÒPIA -->
+    <div class="overview-card" data-score="83.5">
+      <div class="card-street">Torrent de l'Olla</div>
+      <div class="card-origin">Etiòpia · Yirgacheffe</div>
+      <div class="spec-row"><span class="label">Regió</span><span class="value">Gedeo</span></div>
+      <div class="spec-row"><span class="label">Varietal</span><span class="value">Heirloom</span></div>
+      <div class="spec-row"><span class="label">Procés</span><span class="value">Lavat</span></div>
+      <div class="spec-row"><span class="label">Altitud</span><span class="value">2.000 – 2.500 m</span></div>
+      <div class="spec-row"><span class="label">Puntuació</span><span class="value">83,5 pts</span></div>
+      <div class="spec-row"><span class="label">Intensitat</span><span class="value"><span class="intensity-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></span></span></div>
+      <div class="spec-row"><span class="label">Perfil</span><span class="value">Afruitat</span></div>
+      <div class="spec-row"><span class="label">Notes</span><span class="value">Grosella, avellana, caramel</span></div>
+      <div class="spec-row"><span class="label">Cos</span><span class="value">Mitjà</span></div>
+      <div class="spec-row"><span class="label">Acidesa</span><span class="value">Viva</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:16px;">Especificacions comunes</div>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--marro-fluix);"></div>
+        <div style="font-size:14px;color:var(--marro-fluix);"><strong style="color:var(--marro-fosc);">Espècie:</strong> 100% Coffea Arabica</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--marro-fosc);"></div>
+        <div style="font-size:14px;color:var(--marro-fluix);"><strong style="color:var(--marro-fosc);">Recol·lecció:</strong> Manual-Selectiva</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--carn);border:1px solid var(--gris);"></div>
+        <div style="font-size:14px;color:var(--marro-fluix);"><strong style="color:var(--marro-fosc);">Fermentació:</strong> Aeròbica</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--marro-fluix);"></div>
+        <div style="font-size:14px;color:var(--marro-fluix);"><strong style="color:var(--marro-fosc);">Format:</strong> 250 g</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:16px;">Preparació recomanada</div>
+    <div class="prep-grid">
+      <div class="prep-card">
+        <div class="prep-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19h16M5 19V9h14v10M8 9V6h8v3"/><path d="M9 3v2M12 3v2M15 3v2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="prep-name">Filtre</div>
+      </div>
+      <div class="prep-card">
+        <div class="prep-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3h10l-2 18H9L7 3z"/><path d="M6 8h12"/></svg>
+        </div>
+        <div class="prep-name">Italiana</div>
+      </div>
+      <div class="prep-card">
+        <div class="prep-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="4" width="12" height="16" rx="1"/><path d="M18 10h2a2 2 0 010 4h-2"/><path d="M9 1v2M12 1v2M15 1v2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="prep-name">Espresso</div>
+      </div>
+      <div class="prep-card">
+        <div class="prep-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="3" width="10" height="18" rx="1"/><line x1="7" y1="14" x2="17" y2="14"/><line x1="12" y1="3" x2="12" y2="7" stroke-linecap="round"/></svg>
+        </div>
+        <div class="prep-name">Premsa Francesa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN BANNER -->
+<div class="origin-banner full-bleed">
+  <div class="origin-banner-inner">
+    <div class="origin-banner-text">
+      <h3>Tres orígens, <span class="accent">un criteri</span></h3>
+      <p>Del Brasil a Etiòpia passant per Colòmbia, cada cafè ha estat seleccionat amb rigor per la seva identitat i qualitat. Treballem amb finques i cooperatives que comparteixen la nostra manera de fer: amb cura, amb criteri i amb respecte pel producte.</p>
+      <p>La recol·lecció manual-selectiva, la fermentació aeròbica controlada i el processat precís garanteixen que cada gra arribi amb el màxim potencial del seu terroir.</p>
+      <p>No perseguim volum. Perseguim caràcter.</p>
+    </div>
+    <div style="text-align:center;">
+      <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+        <div class="origin-stat">
+          <div class="origin-stat-value">980</div>
+          <div class="origin-stat-label">m · Brasil</div>
+        </div>
+        <div class="origin-stat">
+          <div class="origin-stat-value">1.800</div>
+          <div class="origin-stat-label">m · Colòmbia</div>
+        </div>
+        <div class="origin-stat">
+          <div class="origin-stat-value">2.500</div>
+          <div class="origin-stat-label">m · Etiòpia</div>
+        </div>
+      </div>
+      <div class="origin-tags" style="margin-top:24px;">
+        <span class="origin-tag brown">Alta Mogiana</span>
+        <span class="origin-tag light">Huila</span>
+        <span class="origin-tag brown">Gedeo · Yirgacheffe</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-accent-bar"></div>
+
+<!-- ═══ 04 VERDI — BRASIL ═══ -->
+<div class="variety-detail" id="verdi">
+  <div class="variety-header">
+    <h2 class="variety-name">VERDI</h2>
+    <span class="variety-type">Brasil · Fazenda São Pedro</span>
+  </div>
+  <div class="variety-subtitle">L'equilibri quotidià — «Com Verdi, és un cafè que et fa sentir a casa.»</div>
+  <div class="variety-grid">
+    <div>
+      <div class="variety-specs">
+        <div class="vs-row"><span class="vs-label">País</span><span class="vs-value">Brasil</span></div>
+        <div class="vs-row"><span class="vs-label">Regió</span><span class="vs-value">Santo Antonio do Jardim, Alta Mogiana</span></div>
+        <div class="vs-row"><span class="vs-label">Finca</span><span class="vs-value">Fazenda São Pedro</span></div>
+        <div class="vs-row"><span class="vs-label">Altitud</span><span class="vs-value">980 m</span></div>
+        <div class="vs-row"><span class="vs-label">Varietal</span><span class="vs-value">Bourbon Amarelo</span></div>
+        <div class="vs-row"><span class="vs-label">Procés</span><span class="vs-value">Natural</span></div>
+        <div class="vs-row"><span class="vs-label">Fermentació</span><span class="vs-value">Aeròbica</span></div>
+        <div class="vs-row"><span class="vs-label">Sòl</span><span class="vs-value">Argilós-vermellós</span></div>
+        <div class="vs-row"><span class="vs-label">Collita</span><span class="vs-value">Agost – Setembre</span></div>
+        <div class="vs-row"><span class="vs-label">Criba</span><span class="vs-value">15/18</span></div>
+        <div class="vs-row"><span class="vs-label">Puntuació</span><span class="vs-value">83 pts</span></div>
+      </div>
+
+      <!-- SCORING BREAKDOWN -->
+      <div style="margin-top:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Puntuació detallada</div>
+        <div class="scoring-grid">
+          <div class="scoring-cell"><div class="sc-label">Aroma</div><div class="sc-value">8</div></div>
+          <div class="scoring-cell"><div class="sc-label">Dolçor</div><div class="sc-value">10</div></div>
+          <div class="scoring-cell"><div class="sc-label">Sabor</div><div class="sc-value">7,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Acidesa</div><div class="sc-value">7,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Final</div><div class="sc-value">7,25</div></div>
+          <div class="scoring-cell"><div class="sc-label">Cos</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Balanç</div><div class="sc-value">7,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Unifor.</div><div class="sc-value">10</div></div>
+          <div class="scoring-cell"><div class="sc-label">Global</div><div class="sc-value">7,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Neteja</div><div class="sc-value">10</div></div>
+        </div>
+      </div>
+
+      <!-- RADAR CHART -->
+      <div class="radar-container">
+        <svg width="260" height="260" viewBox="0 0 260 260">
+          <g transform="translate(130,130)">
+            <!-- Grid -->
+            <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="var(--gris)" stroke-width="1"/>
+            <polygon points="0,-75 71,-23 44,61 -44,61 -71,-23" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <polygon points="0,-50 48,-15 29,40 -29,40 -48,-15" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <polygon points="0,-25 24,-8 15,20 -15,20 -24,-8" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <!-- Axes -->
+            <line x1="0" y1="0" x2="0" y2="-100" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="95" y2="-31" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="59" y2="81" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-59" y2="81" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-95" y2="-31" stroke="var(--gris)" stroke-width=".5"/>
+            <!-- Data: Aroma 8, Sabor 7.5, Cos 7.75, Acidesa 7.5, Dolçor 10 -->
+            <polygon points="0,-80 71,-23 46,63 -44,61 -95,-31" fill="rgba(138,106,80,.15)" stroke="var(--marro-fluix)" stroke-width="2"/>
+            <!-- Labels -->
+            <text x="0" y="-108" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Aroma</text>
+            <text x="105" y="-26" text-anchor="start" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Sabor</text>
+            <text x="68" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Cos</text>
+            <text x="-68" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Acidesa</text>
+            <text x="-105" y="-26" text-anchor="end" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Dolçor</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="variety-body">
+      <p>Carrer Verdi és un lloc on la vida passa sense presses. Terrasses plenes, el cinema de sempre, la gent que saluda pel nom. És acollidor, càlid i constant. <strong>El Brasil és exactament això en tassa.</strong></p>
+      <p>Un cafè dolç, rodó i amable. Natural, amb cos mitjà i notes de xocolata i ametlla. No busca estridències ni complexitats extremes. Busca fer-ho bé. Cada dia.</p>
+      <p>Prové de la <strong>Fazenda São Pedro</strong>, a la regió d'Alta Mogiana, Santo Antonio do Jardim, al Brasil. El sòl argilós-vermellós i l'altitud de 980 metres confereixen al gra la seva dolçor característica i el seu cos equilibrat.</p>
+      <p>La varietat <strong>Bourbon Amarelo</strong> és una de les més apreciades del Brasil pel seu perfil dolç i complex. Processada mitjançant el <strong>mètode natural</strong>, la cirera seca amb tot el mucílag intacte, permetent que els sucres es concentrin durant la fermentació aeròbica i aportin la textura melosa i les notes de fruita vermella que defineixen aquest cafè.</p>
+
+      <div class="callout">
+        <div class="callout-title">Descripció organolèptica</div>
+        <p><strong>Perfil:</strong> Dolç i axocolatat</p>
+        <p><strong>Notes:</strong> Maduixa, fruits del bosc, caramel, nous, cacau en pols</p>
+      </div>
+
+      <div style="margin:24px 0;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Perfil sensorial</div>
+        <div class="bar-row"><span class="bar-label">Acidesa</span><div class="bar-track"><div class="bar-fill" style="width:38%;"></div></div><span class="bar-value">Baixa</span></div>
+        <div class="bar-row"><span class="bar-label">Intensitat</span><div class="bar-track"><div class="bar-fill" style="width:50%;"></div></div><span class="bar-value">Mitjana</span></div>
+        <div class="bar-row"><span class="bar-label">Cos</span><div class="bar-track"><div class="bar-fill" style="width:55%;"></div></div><span class="bar-value">Mitjà</span></div>
+        <div class="bar-row"><span class="bar-label">Dolçor</span><div class="bar-track"><div class="bar-fill" style="width:90%;"></div></div><span class="bar-value">Alt</span></div>
+      </div>
+
+      <div class="cup-outcome">
+        <h4>Resultat en tassa</h4>
+        <p>Dolç, rodó i reconfortant. Un cafè per cada dia, amb la profunditat d'un bon café d'especialitat. Com Verdi, és un cafè que et fa sentir a casa.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-accent-bar"></div>
+
+<!-- ═══ 05 GRAN DE GRÀCIA — COLÒMBIA ═══ -->
+<div class="variety-detail" id="gracia">
+  <div class="variety-header">
+    <h2 class="variety-name">GRAN DE GRÀCIA</h2>
+    <span class="variety-type">Colòmbia · Golden Huila</span>
+  </div>
+  <div class="variety-subtitle">L'elegància que estructura — «Colòmbia és la columna vertebral de la col·lecció.»</div>
+  <div class="variety-grid">
+    <div>
+      <div class="variety-specs">
+        <div class="vs-row"><span class="vs-label">País</span><span class="vs-value">Colòmbia</span></div>
+        <div class="vs-row"><span class="vs-label">Regió</span><span class="vs-value">Huila</span></div>
+        <div class="vs-row"><span class="vs-label">Productor</span><span class="vs-value">Cooperativa (+3.000 famílies)</span></div>
+        <div class="vs-row"><span class="vs-label">Altitud</span><span class="vs-value">1.200 – 1.800 m</span></div>
+        <div class="vs-row"><span class="vs-label">Varietal</span><span class="vs-value">Castillo, Caturra, Colombia</span></div>
+        <div class="vs-row"><span class="vs-label">Procés</span><span class="vs-value">Lavat tradicional</span></div>
+        <div class="vs-row"><span class="vs-label">Fermentació</span><span class="vs-value">Aeròbica</span></div>
+        <div class="vs-row"><span class="vs-label">Collita</span><span class="vs-value">Març – Maig</span></div>
+        <div class="vs-row"><span class="vs-label">Criba</span><span class="vs-value">17/19</span></div>
+        <div class="vs-row"><span class="vs-label">Puntuació</span><span class="vs-value">84 pts</span></div>
+      </div>
+
+      <!-- SCORING BREAKDOWN -->
+      <div style="margin-top:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Puntuació detallada</div>
+        <div class="scoring-grid">
+          <div class="scoring-cell"><div class="sc-label">Aroma</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Dolçor</div><div class="sc-value">10</div></div>
+          <div class="scoring-cell"><div class="sc-label">Sabor</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Acidesa</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Final</div><div class="sc-value">7,50</div></div>
+          <div class="scoring-cell"><div class="sc-label">Cos</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Balanç</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Unifor.</div><div class="sc-value">10</div></div>
+          <div class="scoring-cell"><div class="sc-label">Global</div><div class="sc-value">7,75</div></div>
+          <div class="scoring-cell"><div class="sc-label">Neteja</div><div class="sc-value">10</div></div>
+        </div>
+      </div>
+
+      <!-- RADAR CHART -->
+      <div class="radar-container">
+        <svg width="260" height="260" viewBox="0 0 260 260">
+          <g transform="translate(130,130)">
+            <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="var(--gris)" stroke-width="1"/>
+            <polygon points="0,-75 71,-23 44,61 -44,61 -71,-23" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <polygon points="0,-50 48,-15 29,40 -29,40 -48,-15" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <polygon points="0,-25 24,-8 15,20 -15,20 -24,-8" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="0" y2="-100" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="95" y2="-31" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="59" y2="81" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-59" y2="81" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-95" y2="-31" stroke="var(--gris)" stroke-width=".5"/>
+            <!-- Data: Aroma 7.75, Sabor 7.75, Cos 7.75, Acidesa 7.75, Dolçor 10 -->
+            <polygon points="0,-78 74,-24 46,63 -46,63 -95,-31" fill="rgba(104,69,45,.15)" stroke="var(--marro-fosc)" stroke-width="2"/>
+            <text x="0" y="-108" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Aroma</text>
+            <text x="105" y="-26" text-anchor="start" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Sabor</text>
+            <text x="68" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Cos</text>
+            <text x="-68" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Acidesa</text>
+            <text x="-105" y="-26" text-anchor="end" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Dolçor</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="variety-body">
+      <p>Gran de Gràcia és l'artèria principal del barri. Connecta, ordena i dona estructura. Té moviment, però també equilibri. És clàssica, però amb personalitat. <strong>El Golden Huila de Colòmbia té aquesta mateixa presència.</strong></p>
+      <p>És un cafè equilibrat, estructurat i refinat. Dolçor marcada, acidesa neta i cos cremós. Notes de xocolata amb llet i sucre de canya amb un toc cítric que aporta llum. No és un cafè extrem. És un cafè sòlid.</p>
+      <p>Golden Huila és produït per una <strong>cooperativa a la regió cafetera de Huila</strong>, un projecte de més de 3.000 famílies caficultores del centre de Huila. Els grans dels cafès són curosament seleccionats per joves, fills de caficultors que s'han capacitat per complementar els seus coneixements heretats per anys d'experiència familiar en el món de la caficultura.</p>
+
+      <div class="callout">
+        <div class="callout-title">Descripció organolèptica</div>
+        <p><strong>Perfil:</strong> Axocolatat i cítric</p>
+        <p><strong>Notes:</strong> Sucre de canya, xocolata amb llet, préssec groc, llimona. Acidesa mitjana i cítrica, cos mitjà i cremós.</p>
+      </div>
+
+      <div style="padding:24px;background:var(--cream);margin:24px 0;border-left:3px solid var(--marro-fosc);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:8px;">Procés del cafè</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--marro-fluix);">
+          <span style="padding:6px 12px;background:white;border:1px solid rgba(104,69,45,.08);">Recol·lecció de la cirera</span>
+          <span style="color:var(--marro-fluix);">→</span>
+          <span style="padding:6px 12px;background:white;border:1px solid rgba(104,69,45,.08);">Despulpat</span>
+          <span style="color:var(--marro-fluix);">→</span>
+          <span style="padding:6px 12px;background:white;border:1px solid rgba(104,69,45,.08);">Fermentació aeròbica</span>
+          <span style="color:var(--marro-fluix);">→</span>
+          <span style="padding:6px 12px;background:white;border:1px solid rgba(104,69,45,.08);">Lavat</span>
+          <span style="color:var(--marro-fluix);">→</span>
+          <span style="padding:6px 12px;background:white;border:1px solid rgba(104,69,45,.08);">Classificació per densitat</span>
+          <span style="color:var(--marro-fluix);">→</span>
+          <span style="padding:6px 12px;background:white;border:1px solid rgba(104,69,45,.08);">Secat a l'aire lliure</span>
+        </div>
+      </div>
+
+      <div style="margin:24px 0;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Perfil sensorial</div>
+        <div class="bar-row"><span class="bar-label">Acidesa</span><div class="bar-track"><div class="bar-fill" style="width:55%;"></div></div><span class="bar-value">Mitjana</span></div>
+        <div class="bar-row"><span class="bar-label">Intensitat</span><div class="bar-track"><div class="bar-fill" style="width:65%;"></div></div><span class="bar-value">Mitjana-Alta</span></div>
+        <div class="bar-row"><span class="bar-label">Cos</span><div class="bar-track"><div class="bar-fill" style="width:60%;"></div></div><span class="bar-value">Mitjà, cremós</span></div>
+        <div class="bar-row"><span class="bar-label">Dolçor</span><div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div><span class="bar-value">Alt</span></div>
+      </div>
+
+      <div class="cup-outcome">
+        <h4>Resultat en tassa</h4>
+        <p>Equilibrat, estructurat i refinat. Gran de Gràcia és la columna vertebral del barri. Colòmbia és la columna vertebral de la col·lecció.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-accent-bar"></div>
+
+<!-- ═══ 06 TORRENT DE L'OLLA — ETIÒPIA ═══ -->
+<div class="variety-detail" id="torrent">
+  <div class="variety-header">
+    <h2 class="variety-name">TORRENT DE L'OLLA</h2>
+    <span class="variety-type">Etiòpia · Yirgacheffe</span>
+  </div>
+  <div class="variety-subtitle">La creativitat vibrant — «No és el més convencional. És el més expressiu.»</div>
+  <div class="variety-grid">
+    <div>
+      <div class="variety-specs" style="--accent:var(--carn);">
+        <div class="vs-row"><span class="vs-label">País</span><span class="vs-value">Etiòpia</span></div>
+        <div class="vs-row"><span class="vs-label">Regió</span><span class="vs-value">Gedeo</span></div>
+        <div class="vs-row"><span class="vs-label">Productor</span><span class="vs-value">Cooperativa</span></div>
+        <div class="vs-row"><span class="vs-label">Finca</span><span class="vs-value">Vàries de semi-bosc</span></div>
+        <div class="vs-row"><span class="vs-label">Altitud</span><span class="vs-value">2.000 – 2.500 m</span></div>
+        <div class="vs-row"><span class="vs-label">Varietal</span><span class="vs-value">Heirloom</span></div>
+        <div class="vs-row"><span class="vs-label">Procés</span><span class="vs-value">Lavat</span></div>
+        <div class="vs-row"><span class="vs-label">Fermentació</span><span class="vs-value">Aeròbica</span></div>
+        <div class="vs-row"><span class="vs-label">Collita</span><span class="vs-value">Octubre – Desembre</span></div>
+        <div class="vs-row"><span class="vs-label">Criba</span><span class="vs-value">15/17</span></div>
+        <div class="vs-row"><span class="vs-label">Puntuació</span><span class="vs-value">83,5 pts</span></div>
+      </div>
+
+      <!-- SCORING BREAKDOWN -->
+      <div style="margin-top:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Puntuació detallada</div>
+        <div class="scoring-grid">
+          <div class="scoring-cell"><div class="sc-label">Aroma</div><div class="sc-value">8,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Dolçor</div><div class="sc-value">8,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Sabor</div><div class="sc-value">8</div></div>
+          <div class="scoring-cell"><div class="sc-label">Acidesa</div><div class="sc-value">8</div></div>
+          <div class="scoring-cell"><div class="sc-label">Final</div><div class="sc-value">8</div></div>
+          <div class="scoring-cell"><div class="sc-label">Cos</div><div class="sc-value">8</div></div>
+          <div class="scoring-cell"><div class="sc-label">Balanç</div><div class="sc-value">8,5</div></div>
+          <div class="scoring-cell"><div class="sc-label">Unifor.</div><div class="sc-value">8</div></div>
+          <div class="scoring-cell"><div class="sc-label">Global</div><div class="sc-value">9</div></div>
+          <div class="scoring-cell"><div class="sc-label">Neteja</div><div class="sc-value">9</div></div>
+        </div>
+      </div>
+
+      <!-- RADAR CHART -->
+      <div class="radar-container">
+        <svg width="260" height="260" viewBox="0 0 260 260">
+          <g transform="translate(130,130)">
+            <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="var(--gris)" stroke-width="1"/>
+            <polygon points="0,-75 71,-23 44,61 -44,61 -71,-23" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <polygon points="0,-50 48,-15 29,40 -29,40 -48,-15" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <polygon points="0,-25 24,-8 15,20 -15,20 -24,-8" fill="none" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="0" y2="-100" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="95" y2="-31" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="59" y2="81" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-59" y2="81" stroke="var(--gris)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-95" y2="-31" stroke="var(--gris)" stroke-width=".5"/>
+            <!-- Data: Aroma 8.5, Sabor 8, Cos 8, Acidesa 8, Dolçor 8.5 -->
+            <polygon points="0,-85 76,-25 47,65 -47,65 -81,-26" fill="rgba(240,227,210,.2)" stroke="var(--marro-fluix)" stroke-width="2"/>
+            <text x="0" y="-108" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Aroma</text>
+            <text x="105" y="-26" text-anchor="start" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Sabor</text>
+            <text x="68" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Cos</text>
+            <text x="-68" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Acidesa</text>
+            <text x="-105" y="-26" text-anchor="end" font-size="9" font-weight="700" fill="var(--marro-fosc)" font-family="DM Sans">Dolçor</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="variety-body">
+      <p>Torrent de l'Olla té una energia diferent. És més alternativa, més viva, més expressiva. Hi passen coses. Té caràcter. <strong>L'Etiòpia Yirgacheffe és aquesta energia en forma de cafè.</strong></p>
+      <p>Afruitat, brillant i aromàtic. Notes de grosella, caramel i una acidesa viva que desperta. És un cafè que no passa desapercebut. No és el més convencional. És el més expressiu.</p>
+      <p>Prové de la <strong>regió de Gedeo</strong>, al cor de la zona cafetera d'Etiòpia, el bressol del cafè. Les finques de semi-bosc, situades entre 2.000 i 2.500 metres d'altitud, ofereixen les condicions ideals per al cultiu de les varietats <strong>Heirloom</strong> — varietats autòctones que han evolucionat de manera natural durant segles, conferint al cafè etíop la seva complexitat aromàtica única.</p>
+      <p>El <strong>procés de lavat</strong> elimina el mucílag mitjançant fermentació aeròbica controlada, preservant la puresa aromàtica i la brillantor que caracteritzen els millors cafès de Yirgacheffe. L'alta altitud ralentitza la maduració de la cirera, permetent que els àcids i els sucres es desenvolupin plenament.</p>
+
+      <div class="callout">
+        <div class="callout-title">Descripció organolèptica</div>
+        <p><strong>Perfil:</strong> Afruitat</p>
+        <p><strong>Notes:</strong> Grosella, avellana, caramel</p>
+      </div>
+
+      <div style="margin:24px 0;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--marro-fluix);margin-bottom:12px;">Perfil sensorial</div>
+        <div class="bar-row"><span class="bar-label">Acidesa</span><div class="bar-track"><div class="bar-fill" style="width:75%;"></div></div><span class="bar-value">Viva</span></div>
+        <div class="bar-row"><span class="bar-label">Intensitat</span><div class="bar-track"><div class="bar-fill" style="width:55%;"></div></div><span class="bar-value">Mitjana</span></div>
+        <div class="bar-row"><span class="bar-label">Cos</span><div class="bar-track"><div class="bar-fill" style="width:55%;"></div></div><span class="bar-value">Mitjà</span></div>
+        <div class="bar-row"><span class="bar-label">Aroma</span><div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div><span class="bar-value">Alt</span></div>
+      </div>
+
+      <div class="cup-outcome">
+        <h4>Resultat en tassa</h4>
+        <p>Brillant, expressiu i memorable. Torrent de l'Olla no és per travessar-lo ràpid. És per quedar-s'hi, mirar i descobrir. Com Etiòpia.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="inner">
+    <div class="logo-inline" style="margin-bottom:16px;opacity:.5;">
+      <svg viewBox="0 0 500 500" width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0,500) scale(0.1,-0.1)" fill="#f0e3d2" stroke="none">
+          <path d="M1355 3670 c-126 -27 -145 -32 -151 -41 -3 -5 -12 -9 -21 -9 -42 0 -224 -111 -293 -179 -202 -200 -257 -518 -135 -779 77 -163 201 -270 386 -333 86 -29 105 -32 224 -33 73 0 143 4 160 11 17 6 50 17 75 24 60 17 70 26 70 61 l0 29 -47 -8 c-198 -33 -373 45 -504 227 -98 135 -122 404 -52 585 67 176 192 293 381 355 98 31 241 45 249 23 3 -7 -11 -14 -34 -18 -213 -34 -335 -107 -418 -250 -25 -41 -30 -62 -33 -137 l-4 -88 603 2 604 3 3 35 c4 55 21 87 60 113 55 38 104 47 243 47 113 0 129 -2 153 -21 l26 -21 -2 -946 c-3 -908 -4 -948 -22 -978 -37 -61 -124 -93 -259 -94 l-78 0 3 -28 3 -27 480 -5 c537 -6 551 -5 557 18 9 35 -2 42 -70 42 -78 0 -176 18 -216 40 -16 9 -39 34 -50 55 -21 40 -21 48 -24 1193 -3 1285 5 1175 -74 1126 -52 -33 -170 -88 -223 -104 -22 -6 -53 -16 -70 -21 -49 -16 -273 -22 -355 -10 -173 25 -209 33 -305 62 -55 17 -122 37 -150 46 -175 52 -524 69 -690 33z"/>
+          <path d="M3795 3672 c-27 -10 -68 -27 -90 -39 -52 -27 -127 -108 -149 -159 -10 -21 -22 -47 -27 -56 -5 -10 -9 -58 -9 -108 0 -99 22 -166 77 -235 40 -50 129 -110 192 -129 158 -47 356 7 448 122 127 158 117 358 -25 504 -100 104 -277 146 -417 100z m248 -100 c73 -32 130 -98 155 -179 26 -82 26 -90 7 -158 -78 -266 -437 -292 -556 -40 -54 113 -30 232 64 321 89 83 218 105 330 56z"/>
+          <path d="M2030 3037 c-17 -8 -103 -11 -282 -11 -203 1 -258 -1 -258 -11 0 -15 23 -18 278 -42 164 -15 198 -15 315 -3 73 8 153 13 180 12 l47 -2 0 35 0 35 -127 -1 c-76 0 -138 -5 -153 -12z"/>
+          <path d="M1250 2985 c0 -23 31 -107 44 -121 75 -74 385 -119 666 -95 171 14 223 25 261 51 38 28 131 28 159 0 17 -17 20 -33 20 -109 0 -85 1 -91 26 -110 32 -25 76 -27 109 -5 25 16 25 18 25 166 0 144 -1 150 -24 173 -31 31 -89 42 -141 25 -37 -11 -61 -13 -132 -8 -16 1 -88 -6 -161 -15 -284 -36 -637 -15 -780 45 -53 22 -72 23 -72 3z"/>
+          <path d="M1622 2683 c25 -28 41 -63 52 -115 4 -15 19 -43 36 -61 28 -33 29 -35 20 -98 -5 -35 -10 -90 -10 -121 0 -56 1 -58 26 -58 24 0 26 3 20 28 -24 110 -24 113 44 188 55 60 110 153 110 185 0 6 9 23 20 39 11 15 17 30 13 34 -3 3 -85 6 -182 6 l-175 0 26 -27z"/>
+          <path d="M1740 2152 c0 -9 -16 -53 -35 -97 -39 -89 -42 -113 -20 -155 30 -58 90 -67 136 -21 39 39 38 83 -2 163 -18 35 -39 78 -47 96 -18 35 -32 42 -32 14z"/>
+          <path d="M1578 1762 c-461 -2 -538 -4 -538 -17 0 -13 7 -33 31 -90 5 -11 20 -58 35 -105 55 -175 127 -284 216 -327 94 -46 108 -48 278 -47 157 1 168 2 225 28 33 15 74 40 90 55 23 21 47 30 105 40 139 22 211 59 290 148 59 68 72 98 73 169 1 70 -7 84 -59 109 -44 20 -91 14 -151 -21 -57 -33 -63 -31 -51 12 5 20 6 39 1 43 -4 3 -250 5 -545 3z m714 -99 c41 -37 8 -157 -61 -214 -44 -37 -150 -88 -196 -96 -39 -6 -41 -3 -21 35 16 31 48 114 72 189 14 45 22 55 62 77 55 29 117 33 144 9z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="brand">Els Cafès del Manel</div>
+    <p style="font-size:14px;color:rgba(240,227,210,.5);font-family:'Merriweather',serif;font-style:italic;margin-bottom:16px;">Un cafè com cal.</p>
+    <p style="font-size:13px;color:rgba(240,227,210,.4);">Portafoli de Cafè 2026</p>
+    <p style="font-size:13px;color:rgba(240,227,210,.4);">Barcelona · Gràcia · Catalunya</p>
+    <div class="copy">&copy; 2026 Els Cafès del Manel. Tots els drets reservats.</div>
+  </div>
+</div>
+
+</body>
+</html>
