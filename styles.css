@@ -1,0 +1,380 @@
+:root {
+  --carn: #f0e3d2;
+  --marro-fluix: #8a6a50;
+  --marro-fosc: #68452d;
+  --gris: #e4e4e4;
+  --blanc: #ffffff;
+  --negre: #000000;
+  --cream: #faf6f0;
+  --off-white: #fdfbf8;
+  --warm-overlay: rgba(104,69,45,.06);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; color:var(--marro-fosc); background:var(--off-white); line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(104,69,45,.96); backdrop-filter:blur(12px); padding:12px 40px; display:flex; align-items:center; justify-content:space-between; }
+nav::before { content:''; position:absolute; inset:0; background:url('Photos/Photos Barista/Filter Brew 1.jpg') center 35% / cover no-repeat fixed; opacity:.18; z-index:0; pointer-events:none; }
+nav .brand { font-family:'Merriweather',serif; font-weight:700; font-size:12px; letter-spacing:3px; color:var(--carn); text-transform:uppercase; position:relative; z-index:1; }
+nav .links { display:flex; gap:24px; list-style:none; position:relative; z-index:1; }
+nav .links a { color:var(--carn); text-decoration:none; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-weight:400; transition:color .3s; }
+nav .links a:hover { color:var(--blanc); }
+
+/* COVER */
+.cover { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:radial-gradient(ellipse at 40% 50%,rgba(240,227,210,.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(138,106,80,.08) 0%,transparent 50%),var(--marro-fosc); color:var(--carn); position:relative; overflow:hidden; padding:80px 40px; }
+.cover::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url('Photos/Photos Barista/Filter Brew 1.jpg') center 35% / cover no-repeat fixed; opacity:.14; z-index:0; pointer-events:none; }
+.cover-inner { position:relative; z-index:1; }
+.cover .doc-type { font-size:13px; font-weight:700; letter-spacing:6px; text-transform:uppercase; color:var(--carn); margin-bottom:24px; }
+.cover h1 { font-family:'Merriweather',serif; font-size:64px; font-weight:900; letter-spacing:-1px; line-height:1.1; margin-bottom:16px; }
+.cover h1 span { color:var(--marro-fluix); }
+.cover .tagline { font-family:'Merriweather',serif; font-style:italic; font-size:24px; color:var(--carn); margin:24px 0 40px; font-weight:300; }
+.cover .year-badge { font-size:48px; font-weight:700; color:var(--carn); margin:16px 0; display:inline-block; border:2px solid rgba(240,227,210,.3); padding:8px 40px; }
+.cover .contact { margin-top:60px; font-size:12px; color:rgba(240,227,210,.7); line-height:2; }
+.cover .contact a { color:var(--marro-fluix); text-decoration:none; }
+
+/* LOGO SVG INLINE */
+.logo-inline { display:inline-block; }
+.logo-inline svg { width:120px; height:120px; }
+
+/* TOC */
+.toc { display:grid; grid-template-columns:1fr 1fr; min-height:70vh; }
+.toc-visual { background:var(--marro-fosc); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; flex-direction:column; gap:24px; }
+.toc-visual .panot { position:absolute; inset:0; opacity:.04; background-image:repeating-conic-gradient(var(--carn) 0% 25%, transparent 0% 50%); background-size:60px 60px; }
+.toc-content { padding:100px 80px; display:flex; flex-direction:column; justify-content:center; background:var(--cream); }
+.toc-content h2 { font-family:'Merriweather',serif; font-size:42px; font-weight:700; line-height:1.1; margin-bottom:48px; }
+.toc-content h2 .script { font-style:italic; font-weight:300; display:block; font-size:18px; color:var(--marro-fluix); margin-bottom:4px; }
+.toc-item { display:flex; align-items:center; padding:18px 0; border-bottom:1px solid rgba(104,69,45,.08); }
+.toc-item:first-child { border-top:1px solid rgba(104,69,45,.08); }
+.toc-num { font-weight:700; font-size:11px; color:var(--marro-fluix); letter-spacing:2px; min-width:36px; }
+.toc-label { flex:1; font-weight:500; font-size:15px; }
+.toc-pages { font-size:11px; color:var(--marro-fluix); }
+
+/* SECTIONS */
+section { padding:120px 80px; max-width:1400px; margin:0 auto; }
+.full-bleed { max-width:100%; padding:0; }
+.sec-num { font-weight:700; font-size:11px; color:var(--marro-fluix); letter-spacing:4px; text-transform:uppercase; margin-bottom:12px; }
+.sec-script { font-family:'Merriweather',serif; font-style:italic; font-weight:300; font-size:18px; color:var(--marro-fluix); margin-bottom:4px; }
+h2.sec-title { font-family:'Merriweather',serif; font-size:44px; font-weight:700; line-height:1.15; margin-bottom:8px; }
+h2.sec-title .accent { color:var(--marro-fluix); font-style:italic; font-weight:300; }
+.sec-subtitle { font-size:14px; font-style:italic; color:var(--marro-fluix); margin-bottom:24px; }
+.divider { width:60px; height:2px; background:var(--marro-fluix); margin:20px 0 32px; }
+.intro-text { font-size:15px; line-height:1.85; color:var(--marro-fluix); max-width:780px; margin-bottom:48px; }
+.intro-text strong { color:var(--marro-fosc); }
+
+/* ACCENT BAR */
+.section-accent-bar { width:100%; height:4px; margin:0; background:linear-gradient(90deg,var(--marro-fosc),var(--marro-fluix),var(--carn)); }
+
+/* BRAND STORY - FULL WIDTH BLOCKS */
+.brand-block { padding:100px 80px; max-width:1400px; margin:0 auto; }
+.brand-block-dark { background:var(--marro-fosc); color:var(--carn); padding:100px 80px; position:relative; overflow:hidden; }
+.brand-block-dark::before { content:''; position:absolute; inset:0; opacity:.03; background-image:repeating-conic-gradient(var(--carn) 0% 25%, transparent 0% 50%); background-size:80px 80px; }
+.brand-block-dark .inner { position:relative; z-index:1; max-width:1400px; margin:0 auto; }
+.brand-block-dark .sec-num { color:var(--carn); opacity:.5; }
+.brand-block-dark h2.sec-title { color:var(--carn); }
+.brand-block-dark h2.sec-title .accent { color:var(--marro-fluix); }
+.brand-block-dark .divider { background:var(--marro-fluix); }
+.brand-block-dark .intro-text { color:rgba(240,227,210,.7); }
+.brand-block-dark .intro-text strong { color:var(--carn); }
+
+/* VALUES GRID */
+.values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:48px 0; }
+.value-card { padding:40px 36px; border:1px solid rgba(104,69,45,.08); position:relative; overflow:hidden; background:white; text-align:left; }
+.values-grid .value-card:nth-child(n+5) { text-align:right; }
+.values-center-photo { grid-column:2; grid-row:1 / 4; width:100%; height:100%; object-fit:cover; object-position:center 40%; display:block; }
+.value-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--marro-fluix); }
+.value-card h3 { font-family:'Merriweather',serif; font-size:18px; font-weight:700; margin-bottom:12px; color:var(--marro-fosc); }
+.value-card p { font-size:13px; line-height:1.8; color:var(--marro-fluix); }
+
+/* DARK VALUE CARDS */
+.values-grid-dark { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin:48px 0; }
+.value-card-dark { padding:40px 36px; background:rgba(240,227,210,.06); border:1px solid rgba(240,227,210,.08); }
+.value-card-dark h3 { font-family:'Merriweather',serif; font-size:16px; font-weight:700; margin-bottom:12px; color:var(--carn); }
+.value-card-dark p { font-size:13px; line-height:1.8; color:rgba(240,227,210,.6); }
+
+/* STREET CONCEPT */
+.street-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:48px 0; }
+.street-card { padding:48px 36px; border:1px solid rgba(104,69,45,.06); text-align:center; position:relative; }
+.street-card::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:40px; height:3px; }
+.street-card:nth-child(1)::before { background:var(--marro-fluix); }
+.street-card:nth-child(2)::before { background:var(--marro-fosc); }
+.street-card:nth-child(3)::before { background:var(--carn); border:1px solid var(--gris); }
+.street-name { font-family:'Merriweather',serif; font-size:22px; font-weight:700; margin-bottom:4px; color:var(--marro-fosc); }
+.street-origin { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:16px; }
+.street-desc { font-family:'Merriweather',serif; font-style:italic; font-size:14px; line-height:1.7; color:var(--marro-fluix); margin-bottom:16px; }
+.street-coffee { font-size:13px; line-height:1.7; color:var(--marro-fluix); }
+
+/* QUOTE */
+.quote-block { text-align:center; padding:80px 40px; background:var(--cream); margin:48px 0; position:relative; overflow:hidden; }
+.quote-bg { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:50% 40%; opacity:.2; z-index:0; pointer-events:none; }
+.quote-block blockquote { font-family:'Merriweather',serif; font-size:28px; font-weight:700; line-height:1.4; color:var(--marro-fosc); max-width:800px; margin:0 auto; position:relative; z-index:1; }
+.quote-block .attribution { font-size:12px; color:var(--marro-fluix); margin-top:16px; letter-spacing:2px; text-transform:uppercase; font-weight:700; position:relative; z-index:1; }
+
+/* VARIETY OVERVIEW CARDS */
+.overview-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.overview-card { padding:40px 36px; border:1px solid rgba(104,69,45,.08); position:relative; overflow:hidden; background:white; transition:box-shadow .3s; }
+.overview-card:hover { box-shadow:0 8px 32px rgba(104,69,45,.08); }
+.overview-card::before { content:attr(data-score); position:absolute; top:16px; right:20px; font-size:56px; font-weight:700; color:rgba(104,69,45,.04); line-height:1; }
+.overview-card::after { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+.overview-card:nth-child(1)::after { background:var(--marro-fluix); }
+.overview-card:nth-child(2)::after { background:var(--marro-fosc); }
+.overview-card:nth-child(3)::after { background:linear-gradient(90deg,var(--marro-fluix),var(--carn)); }
+.overview-card .card-street { font-family:'Merriweather',serif; font-size:22px; font-weight:700; margin-bottom:2px; }
+.overview-card .card-origin { font-size:11px; color:var(--marro-fluix); font-weight:700; letter-spacing:1px; margin-bottom:20px; text-transform:uppercase; }
+.spec-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(104,69,45,.04); font-size:12px; }
+.spec-row:last-child { border-bottom:none; }
+.spec-row .label { color:var(--marro-fluix); font-weight:600; }
+.overview-card.has-photo .card-origin { color:rgba(240,227,210,.55); }
+.overview-card.has-photo .spec-row .label { color:rgba(240,227,210,.55); }
+.overview-card.has-photo .spec-row .value { color:rgba(240,227,210,.55); }
+.overview-card.has-photo .spec-row { border-bottom-color:rgba(240,227,210,.08); }
+.overview-card.has-photo::before { color:transparent; -webkit-text-stroke:1px rgba(240,227,210,.55); }
+.overview-card.has-photo .dot { border-color:rgba(240,227,210,.55); }
+.overview-card.has-photo .dot.filled { background:rgba(240,227,210,.55); border-color:rgba(240,227,210,.55); }
+.spec-row .value { color:var(--marro-fosc); font-weight:400; text-align:right; max-width:60%; }
+.intensity-dots { display:flex; gap:3px; justify-content:flex-end; }
+.dot { width:10px; height:10px; border-radius:50%; border:1.5px solid var(--marro-fosc); }
+.dot.filled { background:var(--marro-fosc); }
+
+/* RADAR CHART (SVG) */
+.radar-container { display:flex; justify-content:center; margin:32px 0; }
+
+/* VARIETY DETAIL */
+.variety-detail { padding:100px 80px; max-width:1400px; margin:0 auto; border-top:1px solid rgba(104,69,45,.06); }
+.variety-header { display:flex; align-items:baseline; gap:16px; margin-bottom:8px; flex-wrap:wrap; }
+.variety-name { font-family:'Merriweather',serif; font-size:40px; font-weight:700; }
+.variety-type { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); }
+.variety-subtitle { font-family:'Merriweather',serif; font-style:italic; font-size:16px; color:var(--marro-fluix); margin-bottom:32px; font-weight:300; }
+.variety-grid { display:grid; grid-template-columns:340px 1fr; gap:60px; }
+.variety-specs { padding:32px; background:var(--cream); height:fit-content; position:relative; overflow:hidden; }
+.variety-specs::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--marro-fluix); }
+.variety-specs .vs-row { display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid rgba(104,69,45,.06); font-size:13px; gap:12px; }
+.variety-specs .vs-row:last-child { border-bottom:none; }
+.variety-specs .vs-label { font-weight:700; color:var(--marro-fosc); text-transform:uppercase; letter-spacing:1px; font-size:10px; min-width:90px; flex-shrink:0; }
+.variety-specs .vs-value { color:var(--marro-fluix); text-align:right; font-weight:400; }
+.variety-body p { font-size:14px; line-height:1.85; color:var(--marro-fluix); margin-bottom:16px; }
+.variety-specs.has-photo .vs-label { color:rgba(240,227,210,.55); }
+.variety-specs.has-photo .vs-value { color:rgba(240,227,210,.55); }
+.variety-specs.has-photo .vs-row { border-bottom-color:rgba(240,227,210,.08); }
+.variety-specs.has-photo::before { background:rgba(240,227,210,.4); }
+.variety-text-photo { padding:40px; position:relative; min-height:280px; }
+.variety-text-photo p { font-size:14px; line-height:1.85; color:var(--carn); margin-bottom:16px; }
+.variety-text-photo p strong { color:var(--carn); }
+.variety-scoring-radar { display:grid; grid-template-columns:1fr auto; gap:24px; margin-top:24px; align-items:start; }
+.variety-scoring-radar .radar-container { margin:0; }
+.variety-bottom { margin-top:4px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
+.variety-bottom .callout { margin:0; border-left:none; border-top:3px solid var(--marro-fluix); }
+.variety-bottom .cup-outcome { margin-top:0; border-top:3px solid rgba(240,227,210,.3); }
+.variety-bottom-bars { grid-column:1/-1; }
+.variety-body strong { color:var(--marro-fosc); }
+
+/* CUP OUTCOME */
+.cup-outcome { padding:24px; background:var(--marro-fosc); color:var(--carn); margin-top:24px; }
+.cup-outcome h4 { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:8px; }
+.cup-outcome p { font-size:14px; line-height:1.7; color:rgba(240,227,210,.8); margin:0; }
+
+/* CALLOUT BOX */
+.callout { padding:24px; background:rgba(138,106,80,.06); border-left:3px solid var(--marro-fluix); margin:24px 0; }
+.callout .callout-title { font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:8px; }
+.callout p { font-size:14px; line-height:1.7; color:var(--marro-fluix); margin:0; }
+.callout p + p { margin-top:8px; }
+
+/* SCORING TABLE */
+.scoring-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(104,69,45,.06); margin:24px 0; }
+.scoring-cell { background:white; padding:12px 8px; text-align:center; }
+.scoring-cell .sc-label { font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:4px; }
+.scoring-cell .sc-value { font-size:18px; font-weight:700; color:var(--marro-fosc); }
+
+/* BAR INDICATORS */
+.bar-row { display:flex; align-items:center; gap:12px; margin:8px 0; }
+.bar-label { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--marro-fluix); min-width:80px; }
+.bar-track { flex:1; height:8px; background:var(--gris); border-radius:4px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:4px; background:var(--marro-fluix); transition:width .6s ease; }
+.bar-value { font-size:11px; font-weight:600; color:var(--marro-fosc); min-width:30px; text-align:right; }
+
+/* ORIGIN BANNER */
+.origin-banner { background:var(--marro-fosc); padding:80px; position:relative; overflow:hidden; }
+.origin-banner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%,rgba(240,227,210,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(138,106,80,.04) 0%,transparent 40%); }
+.origin-banner-inner { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; max-width:1400px; margin:0 auto; }
+.origin-banner-text { color:var(--carn); }
+.origin-banner-text h3 { font-family:'Merriweather',serif; font-size:28px; font-weight:700; margin-bottom:12px; }
+.origin-banner-text h3 .accent { color:var(--carn); font-style:italic; font-weight:300; }
+.origin-banner-text p { font-size:14px; line-height:1.8; color:rgba(240,227,210,.7); margin-bottom:12px; }
+.origin-stat { display:inline-flex; flex-direction:column; align-items:center; padding:24px 32px; }
+.origin-stat-value { font-family:'Merriweather',serif; font-size:48px; font-weight:700; color:var(--carn); line-height:1; }
+.origin-stat-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--carn); margin-top:8px; }
+.origin-tags { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; justify-content:center; }
+.origin-tag { padding:8px 18px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px; }
+.origin-tag.brown { background:rgba(240,227,210,.1); color:var(--carn); border:1px solid rgba(240,227,210,.15); }
+.origin-tag.light { background:rgba(240,227,210,.1); color:var(--carn); border:1px solid rgba(240,227,210,.15); }
+
+/* PREPARATION METHODS */
+.prep-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:24px 0; }
+.prep-card { text-align:center; padding:20px 12px; border:1px solid rgba(104,69,45,.06); background:white; }
+.prep-card .prep-icon { font-size:24px; margin-bottom:8px; }
+.prep-card .prep-name { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--marro-fosc); }
+
+/* PREPARATION PHOTO CARDS */
+.prep-photo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:32px; }
+.prep-photo-card { height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.prep-photo-name { font-family:'Merriweather',serif; font-size:16px; font-weight:700; color:var(--carn); letter-spacing:2px; text-transform:uppercase; text-align:center; text-shadow:0 1px 8px rgba(0,0,0,.4); }
+
+/* FOOTER */
+.footer { background:var(--marro-fosc); color:var(--carn); padding:60px 80px; text-align:center; position:relative; overflow:hidden; }
+.footer::before { content:''; position:absolute; inset:0; opacity:.03; background-image:repeating-conic-gradient(var(--carn) 0% 25%, transparent 0% 50%); background-size:60px 60px; }
+.footer .inner { position:relative; z-index:1; }
+.footer .brand { font-family:'Merriweather',serif; font-weight:700; font-size:13px; letter-spacing:4px; text-transform:uppercase; margin-bottom:16px; }
+.footer .copy { font-size:11px; color:rgba(240,227,210,.3); margin-top:24px; }
+
+/* RESPONSIVE — TABLET */
+@media(max-width:1024px) {
+  section,.variety-detail,.brand-block { padding:80px 40px; }
+  .brand-block-dark { padding:80px 40px; }
+  .cover h1 { font-size:42px; }
+  h2.sec-title,.variety-name { font-size:32px; }
+  .toc,.variety-grid,.overview-grid,.values-grid,.street-grid,.values-grid-dark,.origin-banner-inner { grid-template-columns:1fr; }
+  .values-grid > * { grid-column:auto !important; grid-row:auto !important; }
+  .values-center-photo { height:280px; }
+  .origin-banner { padding:60px 40px; }
+  .scoring-grid { grid-template-columns:repeat(5,1fr); }
+  nav .links { display:none; }
+  .variety-scoring-radar { grid-template-columns:1fr; }
+  .variety-scoring-radar .radar-container { display:flex; justify-content:center; }
+}
+
+/* RESPONSIVE — MOBILE */
+@media(max-width:768px) {
+  section,.variety-detail,.brand-block { padding:60px 20px; }
+  .brand-block-dark { padding:60px 20px; }
+  .cover { padding:80px 24px; }
+  .cover h1 { font-size:34px; }
+  .toc-visual { display:none; }
+  .toc-content { padding:60px 24px; }
+  h2.sec-title,.variety-name { font-size:28px; }
+  .origin-banner { padding:48px 20px; }
+  .origin-stat-value { font-size:36px; }
+  .origin-stat { padding:16px 20px; }
+  .variety-specs { padding:20px; }
+  .footer { padding:40px 24px; }
+  .scoring-grid { grid-template-columns:repeat(5,1fr); }
+  .prep-grid { grid-template-columns:repeat(2,1fr); }
+  .prep-photo-grid { grid-template-columns:repeat(2,1fr); }
+  .overview-grid,.values-grid,.street-grid,.values-grid-dark,.variety-grid,.origin-banner-inner { grid-template-columns:1fr; }
+  .bar-label { min-width:64px; }
+  .variety-bottom { grid-template-columns:1fr; }
+  .variety-bottom-bars { grid-column:auto; }
+  .variety-scoring-radar { grid-template-columns:1fr; }
+  .variety-scoring-radar .radar-container { display:flex; justify-content:center; margin-top:16px; }
+  .variety-text-photo { padding:24px; }
+  nav::before, .cover::after { background-attachment:scroll; }
+}
+
+/* RESPONSIVE — SMALL MOBILE */
+@media(max-width:480px) {
+  section,.variety-detail,.brand-block { padding:48px 16px; }
+  .brand-block-dark { padding:48px 16px; }
+  .cover h1 { font-size:28px; }
+  .toc-content { padding:48px 16px; }
+  .scoring-grid { grid-template-columns:repeat(3,1fr); }
+  .prep-grid { grid-template-columns:repeat(2,1fr); }
+  .prep-photo-grid { grid-template-columns:repeat(2,1fr); }
+  .origin-banner { padding:40px 16px; }
+  .footer { padding:32px 16px; }
+  .origin-stat { padding:12px 16px; }
+  .origin-stat-value { font-size:28px; }
+  .variety-scoring-radar svg { width:240px; height:240px; }
+}
+
+/* ═══ LABEL OVERLINE ═══ */
+.label-overline { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:12px; }
+
+/* ═══ FILOSOFIA STREETS GRID ═══ */
+.filosofia-streets { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin:32px 0; }
+.filosofia-street-item { padding:40px 28px; background:rgba(240,227,210,.04); border:1px solid rgba(240,227,210,.06); text-align:center; }
+.filosofia-street-name { font-family:'Merriweather',serif; font-size:20px; font-weight:700; color:var(--carn); margin-bottom:4px; }
+.filosofia-street-origin { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:12px; }
+.filosofia-street-desc { font-family:'Merriweather',serif; font-style:italic; font-size:14px; color:rgba(240,227,210,.5); }
+
+/* ═══ PROCESS BLOCK ═══ */
+.process-block { padding:24px; background:var(--cream); margin:24px 0; border-left:3px solid var(--marro-fosc); }
+.process-chain { display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--marro-fluix); }
+.process-step { padding:6px 12px; background:white; border:1px solid rgba(104,69,45,.08); }
+.process-arrow { color:var(--marro-fluix); line-height:2.4; }
+
+/* ═══ LANDING PAGE ═══ */
+.lang-selector { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:var(--marro-fosc); color:var(--carn); padding:40px 24px; position:relative; overflow:hidden; }
+.lang-selector::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 40% 50%,rgba(240,227,210,.08) 0%,transparent 60%); pointer-events:none; }
+.lang-selector-inner { position:relative; z-index:1; }
+.lang-logo { margin-bottom:24px; }
+.lang-brand-name { font-family:'Merriweather',serif; font-size:36px; font-weight:900; letter-spacing:4px; text-transform:uppercase; color:var(--carn); margin-bottom:8px; line-height:1.2; }
+.lang-tagline { font-family:'Merriweather',serif; font-style:italic; font-size:16px; color:var(--marro-fluix); margin-bottom:48px; font-weight:300; }
+.lang-label { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:20px; opacity:.7; }
+.lang-buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:0; }
+.lang-btn { display:inline-block; padding:16px 32px; border:1px solid rgba(240,227,210,.25); color:var(--carn); text-decoration:none; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; transition:border-color .3s,background .3s; min-width:130px; text-align:center; }
+.lang-btn:hover,.lang-btn:focus { border-color:rgba(240,227,210,.6); background:rgba(240,227,210,.06); outline:none; }
+.lang-btn:focus-visible { outline:2px solid var(--carn); outline-offset:3px; }
+.lang-back { display:inline-block; margin-top:32px; font-size:12px; color:rgba(240,227,210,.4); text-decoration:none; transition:color .3s; letter-spacing:1px; }
+.lang-back:hover,.lang-back:focus { color:var(--marro-fluix); }
+
+/* ═══ PRICE LIST ═══ */
+.price-list-page { background:var(--off-white); }
+.price-list-header { text-align:center; padding:80px 40px 48px; max-width:900px; margin:0 auto; }
+.price-list-header .doc-type { font-size:11px; font-weight:700; letter-spacing:6px; text-transform:uppercase; color:var(--marro-fluix); opacity:.7; margin-bottom:16px; }
+.price-list-header h1 { font-family:'Merriweather',serif; font-size:40px; font-weight:900; letter-spacing:-1px; color:var(--marro-fosc); margin-bottom:12px; }
+.price-list-header .tagline { font-family:'Merriweather',serif; font-style:italic; font-size:16px; color:var(--marro-fluix); font-weight:300; }
+.price-list-body { max-width:900px; margin:0 auto; padding:0 40px 80px; }
+.price-variety-block { margin-bottom:64px; }
+.price-variety-title { font-family:'Merriweather',serif; font-size:28px; font-weight:700; color:var(--marro-fosc); margin-bottom:2px; }
+.price-variety-origin { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:20px; }
+.sku-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+.sku-card { padding:32px; background:white; border:1px solid rgba(104,69,45,.08); position:relative; overflow:hidden; }
+.sku-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--marro-fluix); }
+.sku-weight { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--marro-fluix); margin-bottom:10px; }
+.sku-price { font-family:'Merriweather',serif; font-size:34px; font-weight:700; color:var(--marro-fosc); margin-bottom:16px; line-height:1; }
+.sku-price-pending { font-family:'Merriweather',serif; font-style:italic; font-size:16px; color:rgba(138,106,80,.5); margin-bottom:16px; }
+.sku-description { font-size:13px; line-height:1.8; color:var(--marro-fluix); margin-bottom:10px; }
+.sku-flavor { font-size:12px; font-weight:600; color:var(--marro-fosc); margin-bottom:6px; }
+.sku-flavor span { font-weight:400; color:var(--marro-fluix); }
+.sku-brew { font-size:11px; color:var(--marro-fluix); }
+
+/* ═══ NEW CLASS RESPONSIVE RULES ═══ */
+@media(max-width:1024px) {
+  .filosofia-streets { grid-template-columns:1fr; }
+  .lang-brand-name { font-size:30px; }
+}
+@media(max-width:768px) {
+  .sku-grid { grid-template-columns:1fr; }
+  .price-list-header { padding:60px 20px 32px; }
+  .price-list-body { padding:0 20px 60px; }
+  .lang-brand-name { font-size:26px; }
+  .lang-btn { padding:14px 24px; min-width:110px; }
+  .lang-tagline { margin-bottom:36px; }
+}
+@media(max-width:480px) {
+  .lang-buttons { flex-direction:column; align-items:center; width:100%; }
+  .lang-btn { width:100%; max-width:240px; }
+  .lang-brand-name { font-size:22px; letter-spacing:2px; }
+  .price-list-header h1 { font-size:28px; }
+}
+
+/* ═══ PHOTO INTEGRATION ═══ */
+/* TOC visual panel background photo */
+.toc-photo-bg { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center 65%; opacity:.5; z-index:0; pointer-events:none; }
+
+/* Full-width photo strip (within section content) */
+.photo-strip { overflow:hidden; margin:48px 0; }
+.photo-strip img { width:100%; height:340px; object-fit:cover; display:block; }
+
+/* Origin photo inside variety body column */
+.photo-origin { overflow:hidden; margin:24px 0 28px; }
+.photo-origin img { width:100%; height:240px; object-fit:cover; display:block; }
+
+@media(max-width:768px) {
+  .photo-strip img { height:220px; }
+  .photo-origin img { height:180px; }
+}
+@media(max-width:480px) {
+  .photo-strip img { height:180px; }
+  .photo-origin img { height:150px; }
+}

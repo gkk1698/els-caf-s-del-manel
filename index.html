@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Els Cafès del Manel</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Els Cafès del Manel">
+  <meta property="og:title" content="Els Cafès del Manel">
+  <meta property="og:description" content="Un cafè com cal. Born in Barcelona.">
+  <meta property="og:image" content="https://elscafesdelmanel.com/og-ca.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://elscafesdelmanel.com/og-ca.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --carn: #f0e3d2;
+      --marro-fluix: #8a6a50;
+      --marro-fosc: #68452d;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background:
+        linear-gradient(rgba(14,7,3,0.82), rgba(14,7,3,0.82)),
+        url('Photos/Photos Barista/Espresso Machine 4.jpg') center/cover no-repeat fixed;
+      color: var(--carn);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HUB ── */
+    .hub {
+      text-align: center;
+      padding: 64px 40px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .hub-logo {
+      margin-bottom: 32px;
+      opacity: 0.75;
+    }
+
+    .hub-brand {
+      font-family: 'Merriweather', serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--carn);
+      margin-bottom: 14px;
+    }
+
+    .hub-tagline {
+      font-family: 'Merriweather', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(240,227,210,0.55);
+      margin-bottom: 8px;
+    }
+
+    .hub-sub {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: rgba(240,227,210,0.25);
+      margin-bottom: 48px;
+    }
+
+    .hub-divider {
+      width: 32px;
+      height: 1px;
+      background: rgba(240,227,210,0.15);
+      margin: 0 auto 48px;
+    }
+
+    /* ── LANGUAGE SELECTOR ── */
+    .lang-selector {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 44px;
+    }
+
+    .lang-sep {
+      color: rgba(240,227,210,0.18);
+      font-size: 11px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: rgba(240,227,210,0.38);
+      padding: 3px 0 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .lang-btn:hover {
+      color: rgba(240,227,210,0.7);
+    }
+
+    .lang-btn.active {
+      color: var(--carn);
+      border-bottom-color: var(--marro-fluix);
+    }
+
+    /* ── DOCUMENT BUTTONS ── */
+    .doc-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .doc-buttons.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .doc-btn {
+      display: block;
+      min-width: 190px;
+      padding: 16px 24px;
+      border: 1px solid rgba(240,227,210,0.12);
+      border-top: 2px solid var(--marro-fluix);
+      background: rgba(240,227,210,0.03);
+      color: var(--carn);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s, border-top-color 0.2s;
+    }
+
+    .doc-btn:hover {
+      background: rgba(240,227,210,0.07);
+      border-top-color: var(--carn);
+    }
+  
+    @media (max-width: 768px) {
+      body { background-attachment: scroll; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hub">
+
+  <!-- Logo -->
+  <div class="hub-logo">
+    <svg viewBox="0 0 500 500" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(0,500) scale(0.1,-0.1)" fill="#f0e3d2" stroke="none">
+        <path d="M1355 3670 c-126 -27 -145 -32 -151 -41 -3 -5 -12 -9 -21 -9 -42 0 -224 -111 -293 -179 -202 -200 -257 -518 -135 -779 77 -163 201 -270 386 -333 86 -29 105 -32 224 -33 73 0 143 4 160 11 17 6 50 17 75 24 60 17 70 26 70 61 l0 29 -47 -8 c-198 -33 -373 45 -504 227 -98 135 -122 404 -52 585 67 176 192 293 381 355 98 31 241 45 249 23 3 -7 -11 -14 -34 -18 -213 -34 -335 -107 -418 -250 -25 -41 -30 -62 -33 -137 l-4 -88 603 2 604 3 3 35 c4 55 21 87 60 113 55 38 104 47 243 47 113 0 129 -2 153 -21 l26 -21 -2 -946 c-3 -908 -4 -948 -22 -978 -37 -61 -124 -93 -259 -94 l-78 0 3 -28 3 -27 480 -5 c537 -6 551 -5 557 18 9 35 -2 42 -70 42 -78 0 -176 18 -216 40 -16 9 -39 34 -50 55 -21 40 -21 48 -24 1193 -3 1285 5 1175 -74 1126 -52 -33 -170 -88 -223 -104 -22 -6 -53 -16 -70 -21 -49 -16 -273 -22 -355 -10 -173 25 -209 33 -305 62 -55 17 -122 37 -150 46 -175 52 -524 69 -690 33z"/>
+        <path d="M3795 3672 c-27 -10 -68 -27 -90 -39 -52 -27 -127 -108 -149 -159 -10 -21 -22 -47 -27 -56 -5 -10 -9 -58 -9 -108 0 -99 22 -166 77 -235 40 -50 129 -110 192 -129 158 -47 356 7 448 122 127 158 117 358 -25 504 -100 104 -277 146 -417 100z m248 -100 c73 -32 130 -98 155 -179 26 -82 26 -90 7 -158 -78 -266 -437 -292 -556 -40 -54 113 -30 232 64 321 89 83 218 105 330 56z"/>
+        <path d="M2030 3037 c-17 -8 -103 -11 -282 -11 -203 1 -258 -1 -258 -11 0 -15 23 -18 278 -42 164 -15 198 -15 315 -3 73 8 153 13 180 12 l47 -2 0 35 0 35 -127 -1 c-76 0 -138 -5 -153 -12z"/>
+        <path d="M1250 2985 c0 -23 31 -107 44 -121 75 -74 385 -119 666 -95 171 14 223 25 261 51 38 28 131 28 159 0 17 -17 20 -33 20 -109 0 -85 1 -91 26 -110 32 -25 76 -27 109 -5 25 16 25 18 25 166 0 144 -1 150 -24 173 -31 31 -89 42 -141 25 -37 -11 -61 -13 -132 -8 -16 1 -88 -6 -161 -15 -284 -36 -637 -15 -780 45 -53 22 -72 23 -72 3z"/>
+        <path d="M1622 2683 c25 -28 41 -63 52 -115 4 -15 19 -43 36 -61 28 -33 29 -35 20 -98 -5 -35 -10 -90 -10 -121 0 -56 1 -58 26 -58 24 0 26 3 20 28 -24 110 -24 113 44 188 55 60 110 153 110 185 0 6 9 23 20 39 11 15 17 30 13 34 -3 3 -85 6 -182 6 l-175 0 26 -27z"/>
+        <path d="M1740 2152 c0 -9 -16 -53 -35 -97 -39 -89 -42 -113 -20 -155 30 -58 90 -67 136 -21 39 39 38 83 -2 163 -18 35 -39 78 -47 96 -18 35 -32 42 -32 14z"/>
+        <path d="M1578 1762 c-461 -2 -538 -4 -538 -17 0 -13 7 -33 31 -90 5 -11 20 -58 35 -105 55 -175 127 -284 216 -327 94 -46 108 -48 278 -47 157 1 168 2 225 28 33 15 74 40 90 55 23 21 47 30 105 40 139 22 211 59 290 148 59 68 72 98 73 169 1 70 -7 84 -59 109 -44 20 -91 14 -151 -21 -57 -33 -63 -31 -51 12 5 20 6 39 1 43 -4 3 -250 5 -545 3z m714 -99 c41 -37 8 -157 -61 -214 -44 -37 -150 -88 -196 -96 -39 -6 -41 -3 -21 35 16 31 48 114 72 189 14 45 22 55 62 77 55 29 117 33 144 9z"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hub-brand">Els Cafès del Manel</div>
+  <div class="hub-tagline">"Un cafè com cal"</div>
+  <div class="hub-sub">Born in Barcelona</div>
+
+  <div class="hub-divider"></div>
+
+  <!-- Language selector -->
+  <div class="lang-selector">
+    <button class="lang-btn" onclick="selectLang('ca')">Català</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" onclick="selectLang('es')">Español</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" onclick="selectLang('en')">English</button>
+  </div>
+
+  <!-- Document buttons — hidden until language chosen -->
+  <div class="doc-buttons" id="docButtons">
+    <a class="doc-btn" id="btnPortfolio" href="#">—</a>
+    <a class="doc-btn" id="btnPrices" href="#">—</a>
+  </div>
+
+</div>
+
+<script>
+  const langs = {
+    ca: {
+      portfolio: { href: 'ca/portfolio.html', label: 'Portafoli de Cafè' },
+      prices:    { href: 'ca/preus.html',     label: 'Llista de Preus'  }
+    },
+    es: {
+      portfolio: { href: 'es/portfolio.html', label: 'Portafolio de Café' },
+      prices:    { href: 'es/precios.html',   label: 'Lista de Precios'   }
+    },
+    en: {
+      portfolio: { href: 'en/portfolio.html', label: 'Coffee Portfolio' },
+      prices:    { href: 'en/prices.html',    label: 'Price List'       }
+    }
+  };
+
+  function selectLang(code) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.lang-btn[onclick="selectLang(\'' + code + '\')"]').classList.add('active');
+
+    const data = langs[code];
+    const btnP = document.getElementById('btnPortfolio');
+    const btnR = document.getElementById('btnPrices');
+
+    btnP.href        = data.portfolio.href;
+    btnP.textContent = data.portfolio.label;
+    btnR.href        = data.prices.href;
+    btnR.textContent = data.prices.label;
+
+    document.getElementById('docButtons').classList.add('visible');
+  }
+</script>
+
+</body>
+</html>

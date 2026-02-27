@@ -1,0 +1,14 @@
+node_modules/
+package-lock.json
+package.json
+
+# Build / generator scripts
+generate-favicon.js
+generate-og.js
+inject-meta.js
+
+# Internal docs & assets (not needed for the site)
+tasks/
+*.md
+*.pdf
+*.pptx
