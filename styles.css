@@ -16,7 +16,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--marro-fosc); background:var
 
 /* NAV */
 nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(104,69,45,.96); backdrop-filter:blur(12px); padding:12px 40px; display:flex; align-items:center; justify-content:space-between; }
-nav::before { content:''; position:absolute; inset:0; background:url('Photos/Photos Barista/Filter Brew 1.jpg') center 35% / cover no-repeat fixed; opacity:.18; z-index:0; pointer-events:none; }
+nav::before { content:''; position:absolute; inset:0; background:url('Photos/Photos Barista/Latte Art Pour 2.jpg') center 35% / cover no-repeat fixed; opacity:.18; z-index:0; pointer-events:none; }
 nav .brand { font-family:'Merriweather',serif; font-weight:700; font-size:12px; letter-spacing:3px; color:var(--carn); text-transform:uppercase; position:relative; z-index:1; }
 nav .links { display:flex; gap:24px; list-style:none; position:relative; z-index:1; }
 nav .links a { color:var(--carn); text-decoration:none; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-weight:400; transition:color .3s; }
@@ -24,11 +24,11 @@ nav .links a:hover { color:var(--blanc); }
 
 /* COVER */
 .cover { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:radial-gradient(ellipse at 40% 50%,rgba(240,227,210,.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(138,106,80,.08) 0%,transparent 50%),var(--marro-fosc); color:var(--carn); position:relative; overflow:hidden; padding:80px 40px; }
-.cover::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url('Photos/Photos Barista/Filter Brew 1.jpg') center 35% / cover no-repeat fixed; opacity:.14; z-index:0; pointer-events:none; }
+.cover::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url('Photos/Photos Barista/Latte Art Pour 2.jpg') center 35% / cover no-repeat fixed; opacity:.14; z-index:0; pointer-events:none; }
 .cover-inner { position:relative; z-index:1; }
 .cover .doc-type { font-size:13px; font-weight:700; letter-spacing:6px; text-transform:uppercase; color:var(--carn); margin-bottom:24px; }
-.cover h1 { font-family:'Merriweather',serif; font-size:64px; font-weight:900; letter-spacing:-1px; line-height:1.1; margin-bottom:16px; }
-.cover h1 span { color:var(--marro-fluix); }
+.cover h1 { font-family:'Merriweather',serif; font-size:64px; font-weight:900; letter-spacing:-1px; line-height:1.1; margin-bottom:16px; color:#ffffff; }
+.cover h1 span { color:var(--carn); }
 .cover .tagline { font-family:'Merriweather',serif; font-style:italic; font-size:24px; color:var(--carn); margin:24px 0 40px; font-weight:300; }
 .cover .year-badge { font-size:48px; font-weight:700; color:var(--carn); margin:16px 0; display:inline-block; border:2px solid rgba(240,227,210,.3); padding:8px 40px; }
 .cover .contact { margin-top:60px; font-size:12px; color:rgba(240,227,210,.7); line-height:2; }
@@ -132,7 +132,7 @@ h2.sec-title .accent { color:var(--marro-fluix); font-style:italic; font-weight:
 .overview-card.has-photo::before { color:transparent; -webkit-text-stroke:1px rgba(240,227,210,.55); }
 .overview-card.has-photo .dot { border-color:rgba(240,227,210,.55); }
 .overview-card.has-photo .dot.filled { background:rgba(240,227,210,.55); border-color:rgba(240,227,210,.55); }
-.spec-row .value { color:var(--marro-fosc); font-weight:400; text-align:right; max-width:60%; }
+.spec-row .value { color:var(--marro-fosc); font-weight:700; text-align:right; max-width:60%; }
 .intensity-dots { display:flex; gap:3px; justify-content:flex-end; }
 .dot { width:10px; height:10px; border-radius:50%; border:1.5px solid var(--marro-fosc); }
 .dot.filled { background:var(--marro-fosc); }
@@ -152,7 +152,7 @@ h2.sec-title .accent { color:var(--marro-fluix); font-style:italic; font-weight:
 .variety-specs .vs-row { display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid rgba(104,69,45,.06); font-size:13px; gap:12px; }
 .variety-specs .vs-row:last-child { border-bottom:none; }
 .variety-specs .vs-label { font-weight:700; color:var(--marro-fosc); text-transform:uppercase; letter-spacing:1px; font-size:10px; min-width:90px; flex-shrink:0; }
-.variety-specs .vs-value { color:var(--marro-fluix); text-align:right; font-weight:400; }
+.variety-specs .vs-value { color:var(--marro-fluix); text-align:right; font-weight:700; }
 .variety-body p { font-size:14px; line-height:1.85; color:var(--marro-fluix); margin-bottom:16px; }
 .variety-specs.has-photo .vs-label { color:rgba(240,227,210,.55); }
 .variety-specs.has-photo .vs-value { color:rgba(240,227,210,.55); }
