@@ -30,7 +30,24 @@
     <li><a href="#gracia">Gran de Gràcia</a></li>
     <li><a href="#torrent">Torrent de l'Olla</a></li>
   </ul>
+  <button class="hamburger" id="menuBtn" aria-label="Menú" aria-expanded="false">☰</button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#marca" onclick="closeMenu()">La Marca</a></li>
+    <li><a href="#filosofia" onclick="closeMenu()">Filosofia</a></li>
+    <li><a href="#coleccio" onclick="closeMenu()">Col·lecció</a></li>
+    <li><a href="#verdi" onclick="closeMenu()">Verdi</a></li>
+    <li><a href="#gracia" onclick="closeMenu()">Gran de Gràcia</a></li>
+    <li><a href="#torrent" onclick="closeMenu()">Torrent de l'Olla</a></li>
+  </ul>
+</div>
+<script>
+var _btn=document.getElementById('menuBtn'),_menu=document.getElementById('mobileMenu');
+function toggleMenu(){var o=_menu.classList.toggle('open');_btn.textContent=o?'✕':'☰';_btn.setAttribute('aria-expanded',o);}
+function closeMenu(){_menu.classList.remove('open');_btn.textContent='☰';_btn.setAttribute('aria-expanded','false');}
+_btn.addEventListener('click',toggleMenu);
+</script>
 
 <!-- ═══ COVER ═══ -->
 <div class="cover full-bleed">

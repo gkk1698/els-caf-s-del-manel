@@ -21,6 +21,13 @@ nav .brand { font-family:'Merriweather',serif; font-weight:700; font-size:12px; 
 nav .links { display:flex; gap:24px; list-style:none; position:relative; z-index:1; }
 nav .links a { color:var(--carn); text-decoration:none; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-weight:400; transition:color .3s; }
 nav .links a:hover { color:var(--blanc); }
+.hamburger { display:none; background:none; border:none; color:var(--carn); font-size:22px; cursor:pointer; padding:4px 8px; position:relative; z-index:1; line-height:1; }
+.mobile-menu { position:fixed; top:48px; left:0; right:0; z-index:99; background:rgba(104,69,45,.97); backdrop-filter:blur(12px); overflow:hidden; max-height:0; transition:max-height .35s ease, padding .35s ease; padding:0; }
+.mobile-menu.open { max-height:400px; padding:8px 0 16px; }
+.mobile-menu ul { list-style:none; margin:0; padding:0; }
+.mobile-menu ul li a { display:block; color:var(--carn); text-decoration:none; font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:14px 40px; border-bottom:1px solid rgba(240,227,210,.1); transition:background .2s,color .2s; }
+.mobile-menu ul li:last-child a { border-bottom:none; }
+.mobile-menu ul li a:hover { background:rgba(240,227,210,.1); color:var(--blanc); }
 
 /* COVER */
 .cover { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:radial-gradient(ellipse at 40% 50%,rgba(240,227,210,.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(138,106,80,.08) 0%,transparent 50%),var(--marro-fosc); color:var(--carn); position:relative; overflow:hidden; padding:80px 40px; }
@@ -239,6 +246,7 @@ h2.sec-title .accent { color:var(--marro-fluix); font-style:italic; font-weight:
   .origin-banner { padding:60px 40px; }
   .scoring-grid { grid-template-columns:repeat(5,1fr); }
   nav .links { display:none; }
+  .hamburger { display:block; }
   .variety-scoring-radar { grid-template-columns:1fr; }
   .variety-scoring-radar .radar-container { display:flex; justify-content:center; }
 }
